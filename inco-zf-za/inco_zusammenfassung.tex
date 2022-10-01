@@ -1,0 +1,21 @@
+\documentclass[a4paper, fontsize=7pt, landscape]{scrartcl}
+\usepackage{inco_za}
+
+\createmainpagestyle
+
+\begin{document}
+\begin{multicols*}{4}
+	
+	\pagestyle{main}
+	\thispagestyle{fancy}
+
+	\input{sections/komb-logik.tex}
+	\input{sections/seq-logik.tex}
+	\input{sections/zahlensysteme.tex}
+	\input{sections/informationstheorie.tex}
+	\input{sections/quellencodierung.tex}
+    \input{sections/kanalcodierung.tex}
+	\input{sections/misc.tex}
+\end{multicols*}
+\input{sections/binary_table.tex}
+\end{document}

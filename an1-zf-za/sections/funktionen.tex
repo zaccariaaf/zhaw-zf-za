@@ -1,0 +1,116 @@
+\section{Funktionen}
+	
+	\subsection{Begriff einer Funktion}
+	\begin{minipage}{1\linewidth}
+		\begin{definition}{Definition 1}
+			Eine Funktion $f$ ist eine Vorschrift, die jedem Element aus
+			einer Menge $D$ genau ein Element einer Menge $W$ zuordnet.
+			Die Menge $D$ wird als \textit{Definitionsbereich} bezeichnet, 
+			die Menge $W$ wird als Wertebereich bezeichnet.
+		\end{definition}
+	\end{minipage}
+	
+	\subsection{Darstellungen von Funktionen}
+	
+	\subsubsection{Spezielle Funktionen}
+	\begin{center}
+		\begin{minipage}{1\linewidth}
+		\textbf{Identitätsfunktion:} Funktion, welche alle Variablen auf sich
+		selbst abbildet. $f(x)=x$ 
+		\end{minipage}
+		\hfill
+		\begin{minipage}{1\linewidth}	
+		\textbf{Konstante Funktion:} Funktion, welche alle Variablen auf
+		denselben Funktionsweg abbildet. $f(x)=3$
+		\end{minipage}
+	\end{center}
+
+	\subsubsection{Nullstelle einer Funktion}
+	\begin{minipage}{1\linewidth}	
+		Eine Stelle $x_0 \in D$ mit $f(x_0)=0$ heisst Nullstelle der Funktion $f$.
+		Beispiel: Schnittpunkt des Graphen mit der $x$-Achse
+	\end{minipage}
+
+	\subsection{Operationen mit Funktionen}
+	\begin{minipage}{1\linewidth}
+		\begin{definition}{Definition 2}
+			Wir betrachten eine (beliebige) Menge $D$ und zwei Funktionen \\
+			$f:D\to \mathbb{R} \text{ mit} \mapsto f(x)$ und
+			$g:D \to \mathbb{R} \text{ mit } x \mapsto g(x)$.\\
+			Dann können wir die folgenden Operationen definieren:	
+			\begin{flalign*}
+			f+g: \quad &D \to \mathbb{R} \text{ mit } x \mapsto f(x)+g(x) \\
+			f-g: \quad &D \to \mathbb{R} \text{ mit } x \mapsto f(x)-g(x) \\
+			f\cdot g: \quad &D \to \mathbb{R} \text{ mit } x \mapsto f(x)\cdot g(x) \\
+			\frac{f}{g}: \quad &D \to \mathbb{R} \text{ mit } x \mapsto \frac{f(x)}{g(x)} \\
+			c \cdot f: \quad &D \to \mathbb{R} \text{ mit } x \mapsto c \cdot f(x) \\
+			\end{flalign*}
+		\end{definition}
+	\end{minipage}
+	
+	\subsection{Komposition und Umkehrfunktion}
+	
+	\subsubsection{Komposition}
+	\begin{minipage}{1\linewidth}
+		\begin{definition}{Definition 3}
+			Für zwei gegebene Funktionen $f : A \rightarrow B$ und $g : B \rightarrow C$, 
+			ist die Funktion $g \circ f : A \rightarrow C$
+			definiert durch $(g \circ f)(x) = g(f(x))$ \\
+			Diese neue Funktion heisst Komposition von $f$ und $g$.
+		\end{definition}
+	\end{minipage}
+	
+	\subsubsection{Umkehrfunktion}
+	\begin{minipage}{1\linewidth}
+		\begin{definition}{Definition 4}
+		$g(y) \coloneqq$ Urbild von $y$ ($= x$ mit der Eigenschaft: $f(x)=y$)\\
+		Diese Funktion heisst \textit{Umkehrfunktion} und wird auch mit $f^{-1}$ bezeichnet.	
+		\end{definition}
+	\end{minipage}
+	
+	\subsection{Werkzeug: Summenzeichen}
+	\begin{minipage}{1\linewidth}		
+		\begin{equation*}
+			a_{s}+a_{s+1}+a_{s+2}+...+a_n \qquad \sum_{k=1}^{n}a_k
+		\end{equation*}
+	\end{minipage}
+
+	\subsubsection{Rechenregeln für Summenzeichen}
+	\begin{align*}
+	&\sum_{k=s}^{n}(c \cdot a_k) = c \cdot a_{s} + c \cdot a_{s+1} + ... + c \cdot a_{n} = c \cdot 
+	\sum_{k=s}^{n}a_{k}\\
+	&\sum_{k=s}^{n}(a_{k} \cdot b_k) = a_s + b_{s} + a_{s+1} + b_{s+1} + ... + a_n + b_{n} = 
+	\sum_{k=s}^{n}a_k + \sum_{k=s}^{n}b_{k}\\
+	&\sum_{k=s}^{n} a_k + \sum_{k=n+1}^{m} a_k = \sum_{k=s}^{m}a_k = \sum_{r=s}^{m}a_r = \sum_{i=s}^{m}a_i
+	\end{align*}
+	
+	\subsubsection{Spezielle Summen}
+	\begin{minipage}{0.45\linewidth}
+		\subsubsection{Natürliche Summe}
+		\begin{equation*}
+			\sum_{k=1}^{n}k = \frac{n(n+1)}{2} 
+		\end{equation*}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.45\linewidth}
+		\subsubsection{Summe der Quadratzahlen}
+		\begin{equation*}
+			\sum_{k=1}^{n}k^2=\frac{n(n+1)(2n+1)}{6} 
+		\end{equation*}
+	\end{minipage}
+
+	\subsection{Betragsfunktionen}
+	\begin{minipage}{1\linewidth}
+		\begin{definition}{Definition 5}
+		Für eine Zahl $a$ bezeichnet der Betrag den Abstand von $a$ zum Nullpunkt der Zahlengeraden.
+		\begin{equation*}
+			|a| =
+			\begin{cases}
+				a, & \text{falls } a \geq 0 \\
+				-a, & \text{falls } a < 0
+			\end{cases}
+		\end{equation*}
+		Der Graph der Funktion $f{x}=|x|$ ist achsensymmetrisch zur $y$-Achse.
+
+		\end{definition}
+	\end{minipage}

@@ -1,0 +1,86 @@
+\section{Informationstheorie}
+
+\subsection{Quellen-Modell}%
+\label{sub:quellen_modell}
+\begin{enumerate}
+	\item Eine Datenquelle ist gibt zufällige Nachrichten $X_n$ aus, mit $k=0,1,2,...$.
+	\item $X_0$ ist die Nachricht nach dem Start.
+	\item $X_k$ ist eine beliebige Nachricht aus dem Nachrichtenstrom.
+	\item $k$ sagt nichts über den Inhalt der Nachricht aus.
+\end{enumerate}
+
+\subsection{Typen von Datenquellen}%
+\label{sub:typen_von_datenquellen}
+\subsubsection{Discrete Memoryless Source (DMS)}%
+\label{ssub:discrete_memoryless_source_dms_}
+\begin{enumerate}
+	\item \textbf{Discrete:} Qulle liefert zeitlich einzelne Ereignisse.
+	\item \textbf{Memoryless: } Quelle erinnert sich beim Produzieren eines Ereignisses nicht an
+		die Vorgeschichte. D.h. Symbole sind statistisch unabhängig voneinander.
+\end{enumerate}
+\subsubsection{Binary Memoryless Source}%
+\label{ssub:binary_memoryless_source}
+	DMS, die lediglich zwei verschiedene Ereignisse erzeugt.
+
+\subsection{Informationsgehalt}%
+\label{sub:informationsgehalt}
+\subsubsection{Informationsgehalt von Ereignissen mit gleichen Wahrscheinlichkeiten}%
+\begin{enumerate}
+	\item Werden $F$ Ja/Nein Antworten benötigt, um zu einer Antwort zu gelangen, so muss eine Nachricht
+	$x_n$, welche diese Antwort als Ganzes erhält, gleich viel Information $I(x_n)$ enthalten; also $F$ Bit.
+	\item Mit $F$ Fragen können maximal $N$ Fragen eingegrenzt werden ($2^F \geq N$)
+	\item $\rceil F = \log{2}{N} \lceil$ (Bit)
+	\item $I(x_n) = \log{2}{N} (Bit)$
+	\item Je mehr Fälle, desto seltener tritt ein Ereignis ein.
+	\item Je seltener ein Ereignis, desto höher sein Informationsgehalt.
+	\item Wenn alle Ereigniswerte $x_n$ die gleiche Auftretenswahrscheinlichkeit $P(x_n)$ haben, gilt: \\
+		$P(x_n) = \frac{1}{N} \implies N=\frac{1}{P(x_n)}$
+	\item Für den Informationsgehalt eines Ereignisses folgt: \\
+		$I(x_n) = \log{2}{\frac{1}{P(x_n)}}$
+\end{enumerate}
+
+\subsubsection{Auftretenswahrscheinlichkeit $P(x_n)$}%
+\begin{enumerate}
+	\item $k(x_n)$ sei die absolute Häufigkeit von $x_n$ in den $K$ Ereignissen.
+	\item Die Auftretenswahrscheinlichkeit ist dann: \\
+		$P(x_n) = \frac{k(x_n)}{K}$
+\end{enumerate}
+
+\subsubsection{Grenzbetrachtung}%
+\label{ssub:grenzbetrachtung}
+\begin{enumerate}
+	\item Ereignis das praktisch sicher eintritt: $P(x_n) \rightarrow 1$ \\
+		$I_{min} = \lim_{P(x_n) \to 1} \log{2}{\frac{1}{P(x_n)} = 0}$
+	\item Ereignis das sozusagen nie eintritt: $P(x_n)\rightarrow 1$ \\
+		$I_{max} = \lim_{P(x_n) \to 0} \log{2}{\frac{1}{P(x_n)}=0}$
+\end{enumerate}
+
+\subsection{Entropie}%
+\label{sub:entropie}
+\begin{equation*}
+	H(X) = \sum^{N-1}_{n=0} P(x_n) \cdot \log{2}{\frac{1}{P(x_n)}} 
+\end{equation*}
+
+\subsubsection{Binäre, gedächtnislose Quelle}%
+\label{ssub:binäre_gedächtnislose_quelle}
+\begin{enumerate}
+	\item Eine Binary Memoryless Source BMS kennt nur 2 Symbole.
+	\item Daraus folgt, dass wenn $p$ die Auftretenswahrscheinlichkeit des einen Symbol ist, ist die
+		Auftretenswahrscheinlichkeit des anderen Symbols $(1-p)$.
+	\item Für die binäre Entropie $H_b$ gilt also: \\
+		$H_b = p \cdot log{2}{\frac{1}{p}} + (1-p) \cdot log{2}{\frac{1}{1-p}}$
+\end{enumerate}
+
+\subsubsection{Entropie Eigenschaften}
+\begin{enumerate}
+	\item Eine Quelle $X$ liefere $N$ verschiedene Symbole $x_n$, die alle identische Wahrscheinlichkeiten
+		$P(x_n)=\frac{1}{N}$ haben, dann gilt: \\
+		$H(X)=\sum^{N-1}_{n=0}P(x_n) \cdot \log{2}{\frac{1}{P(x_n)}} = N \cdot \frac{1}{N} \cdot
+		\log{2}{N} = \log{2}{N}$
+	\item Minimale Entropie: Falls es am Ausgang einer Quelle $X$ ein Symbol $x_n$ gibt mit $P(x_n) = 1$, 
+		so ist $H(X)=0$. Die minimale Entropie $H_{min}$ ist demnach: \\
+		$H_{min} = 0$
+	\item Maximale Entropie: Wenn $N$ die Anzahl möglicher Symbole einer Quelle $X$ ist, so gilt $0\leq H
+		(X) \leq \log{2}{N}$. Die maximale Entropie $H_{max}$ ist demnach: \\
+		$H_{max} = \log{2}{N}$
+\end{enumerate}

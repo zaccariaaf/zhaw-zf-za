@@ -1,0 +1,103 @@
+\section{Grundbegriffe und elementare Logik}
+
+\subsection{Aussagen, Prädikate und Quantoren}
+\subsubsection{Junktoren}%
+\label{ssub:Junktoren}
+\begin{minipage}{0.9\linewidth}
+\begin{itemize}
+\item $\neg A$ ist genau dann wahr, wenn \textit{A} falsch ist.
+\item $A  \land B$ ist genau dann wahr, wenn sowohl 
+\textit{A} als auch \textit{B} wahr sind.
+\item $A \lor B$ ist genau dann wahr, wenn \textit{A} wahr ist oder \textit{B} wahr ist, oder beide wahr sind.
+\item $A \Rightarrow B$ ist genau dann wahr, wenn $\neg A \lor B$ wahr ist.
+\item $A \Leftrightarrow B$ ist genau dann wahr, wenn $A \Rightarrow B$ und $B \Rightarrow A$ wahr sind.
+\end{itemize}
+\end{minipage}
+
+\subsubsection{Junktorenregeln}
+\begin{minipage}{0.9\linewidth}
+Seien $A,B$ und $C$ beliebige Aussagen. Es gelten folgende Äquivalenzen: \\
+\\
+$\neg\neg A\Leftrightarrow A$\\
+$A\wedge B\Leftrightarrow B\wedge A$\\
+$A\vee B\Leftrightarrow B\vee A$\\
+$(A\wedge B)\wedge C\Leftrightarrow A\wedge (B\wedge C)$ \\
+$(A\vee B)\vee C\Leftrightarrow A\vee (B\vee C)$\\
+$A\wedge (B\vee C)\Leftrightarrow (A\wedge B)\vee (A\wedge C)$ \\
+$A\vee (B\wedge C)\Leftrightarrow (A\vee B)\wedge (A\vee C)$\\
+$\neg(A\wedge B)\Leftrightarrow\neg A\vee\neg B\\$
+$\neg(A\vee B)\Leftrightarrow \neg A\wedge\neg B$\\
+\end{minipage}
+
+\subsubsection{Beispiel Kontraposition}
+\begin{minipage}{0.9\linewidth}
+\begin{align*}
+                     &A\Rightarrow B\\
+   \Leftrightarrow\, &\neg A\lor B                  &(\text{Definition von }A\Rightarrow B)\\
+   \Leftrightarrow\, &B\lor \neg A                  &(\text{Kommutativität})\\
+   \Leftrightarrow\, &\neg\neg B\lor\neg A          &(\text{Doppelte Negation})\\
+   \Leftrightarrow\, &\neg B\Rightarrow \neg A      &(\text{Definition von }\neg B\Rightarrow\neg A)
+\end{align*}
+\end{minipage}
+
+\subsubsection{Quantoren}
+\begin{minipage}{0.9\linewidth}
+\begin{itemize}
+ \item $\forall xA (x)$: A trifft auf jedes Objekt zu.
+ \item $\forall x \in M A(x)$: A trifft auf jedes Objekt aus M zu.
+ \item $\exists x A(x)$: Es gibt mindestens ein Objekt O welches auf A zutrifft
+ \item $\exists x \in M A(x)$: Es gibt mindestens ein Objekt aus M, welches auf A zutrifft.
+\end{itemize}
+Die Symbole $\forall$ und $\exists$ heissen \textit{Allquantor} und \textit{Existenzquantor}
+Ein \textit{n}-stelliges Prädikat wird durch Quantifizierung stets zu einem \textit{n-1}-stelligem Prädikat.
+\end{minipage}
+
+\subsubsection{Quantorenregeln}
+\begin{minipage}{0.9\linewidth}
+\begin{align*}
+ \forall x A(x) &\Leftrightarrow \neg\exists x \neg A(x) \\
+ \forall x \in K A(x) &\Leftrightarrow \neg\exists x \in K \neg A(x) \\
+ \forall x \in K A(x) &\Leftrightarrow \forall x(x\in K \Rightarrow A(x)) \\
+ \exists x \in K A(x) &\Leftrightarrow \exists x (x \in K \land A(x) \\
+\end{align*}
+\end{minipage}
+
+\subsection{Grundlegende Beweistechniken}
+	
+\subsubsection{Direkter Beweis einer Implikation}
+\begin{minipage}{0.9\linewidth}
+Basierend auf der Annahme, dass die Implikation $A$ wahr ist, werden zwingende Argumente für die Richtigkeit von $B$ dargestellt. ($A \implies B$) \\
+\textbf{Beispiel:} ``Wenn $x$ und $y$ gerade sind, dann ist auch $x \cdot y$ gerade.''
+$\Rightarrow x \cdot y$ ist ein vielfaches von 2 und somit gerade.
+\end{minipage}
+	
+\subsubsection{Beweis durch Widerspruch}
+\begin{minipage}{0.9\linewidth}
+Wir nehmen an, die Aussage $A$ wäre falsch und benutzen diese Annahme, um einen Widerspruch herzuleiten.\\ 
+\textbf{Beispiel:} $A\coloneqq$``Es gibt keine grösste natürliche Zahl''\\
+\textit{Beweis.} Wir nehmen an es gäbe eine grösste natürliche Zahl $m$.
+Wir wissen, dass für jede Zahl $n$ gilt, dass $n+1$ ebenfalls eine natürliche Zahl ist sowie dass $n<n+1$ erfüllt ist. Wir wenden dies auf die natürliche Zahl $m$ an und erhalten $m+1$. Dies steht im Widerspruch zur ursprünglichen Aussage, dass $m$ die grösste natürliche Zahl ist.
+\end{minipage}
+
+\subsubsection{Beweis durch Kontraposition}
+\begin{minipage}{0.9\linewidth}
+Wenn eine Aussage von der Form $A \Rightarrow B$ zu beweisen ist, beweisen wir $\neg B \Rightarrow \neg A$. \\
+\textbf{Beispiel:} ``Für jede natürliche Zahl $n$ gilt: $(n^2+1=1) \Rightarrow (n=0)$ '' \\
+\textit{Beweis.} Wenn $n\neq 0$ gilt, so folgt, dass auch $n^2 \neq 0$ gilt. Dies impliziert, dass für jede weitere natürliche Zahl $m$ die Ungleichung $n^2 + m \neq m$ erfüllt ist. Insbesondere gilt daher, dass (der Fall $m=1$)$n^2+1\neq 1$ gilt.
+\end{minipage}
+
+\subsubsection{Beweis einer Äquivalenz}
+\begin{minipage}{0.9\linewidth}
+Um eine Aussage der Form $A \Leftrightarrow B$ zu beweisen, beweisen wir $A \Rightarrow B$ und $B \Rightarrow A$.\\
+\textbf{Beispiel:} ``Für jede natürliche Zahl $n$ gilt:($n$ ist gerade) $\Rightarrow$ ($n^2$ ist gerade).'' \\
+\textit{Beweis.} Wir beweisen zuerst ($n$ ist gerade) $\Rightarrow$ ($n^2$ ist gerade. Wir nehmen also an, dass $n$ eine gerade natürliche Zahl ist. Daraus folgt, dass eine weitere natürliche Zahl $k$ mit $n=2\cdot k$ gibt.
+Es folgt, dass
+\begin{align*}
+ n^2 = n\cdot n = 2 \cdot k \cdot 2 \cdot k = 2 \cdot 
+ (k \cdot 2 \cdot k)
+\end{align*}
+offenbar gerade ist. \\
+Nun wollen wir noch beweisen, dass ``$n^2$ ist gerade $\Rightarrow n$ ist gerade'' gilt. Bei Annahme, dass $n$ ungerade sei folgt, dass es eine natürliche Zahl $k$ gibt mit $2 \cdot k - 1 = n$. Also ist $n^2 = (2 \cdot k - 1)(2 \cdot k - 1) = 4k^2-4k+1=4(k^2-k)+1$ ungerade.
+\end{minipage}
+
+

@@ -1,0 +1,21 @@
+\documentclass[a4paper, fontsize=7pt, landscape]{scrartcl}
+\usepackage{dmz}
+
+\setkomafont{disposition}{\normalfont\bfseries}
+
+\createmainpagestyle
+
+\begin{document}
+
+\begin{multicols*}{3}
+	\pagestyle{main}
+	\thispagestyle{fancy}
+
+	\input{sections/funktionen.tex}
+	\input{sections/polynome.tex}
+    \input{sections/ableitungen.tex}
+	\input{sections/integral.tex}
+	\input{sections/folgen_reihen.tex}
+	\input{sections/anwendungableitung.tex}
+\end{multicols*}
+\end{document}

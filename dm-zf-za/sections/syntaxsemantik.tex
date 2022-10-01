@@ -1,0 +1,178 @@
+\section{Syntax und Semantik}
+\begin{minipage}{0.9\linewidth}
+Zeichenvorrat:
+\begin{itemize}
+ \item Konstanten $\top$ und $\bot$.
+ \item Variablen $p,q,r,s,...,p_0,p_1,p_2,...$
+ \item Klammern $(,)$
+ \item Junktoren $\neg,\land,\lor,\to$
+\end{itemize}
+Menge der Variablen: $\mathbb{V}$.
+\end{minipage}
+
+\begin{minipage}{0.9\linewidth}
+\begin{itemize}
+ \item Jede Variable und jede Konstante ist eine \textit{atomare Formel}.
+ \item Menge aller atomaren Formeln: \\
+ $\mathbb{A} \coloneqq \left\{\top,\bot,p,q,r,s,...,p_0,p_1,p_2,...\right\}$.
+ \item Alle atomaren Formeln sind Formeln.
+ \item Sind $P$ und $Q$ schon Formeln, dann auch: $(P\land Q),(P\lor Q),(P\to Q), \neg P$
+ \item $\mathbb{F}$: Menge aller aussagenlogischen Formeln.	
+\end{itemize}
+\end{minipage}
+\vfill
+
+\subsubsection{Belegung}%
+\label{ssub:belegung}
+\begin{minipage}{0.9\linewidth}
+Eine \textit{Belegung} ist eine Zuordnung von Variablen zu Wahrheitswerten, d.h. eine Funktion \\
+$B:\mathbb{V}\to \left\{\texttt{true, false}\right\}$.
+\end{minipage}
+
+\begin{minipage}{0.9\linewidth}
+Die Funktion $\hat{B}$ ist die Funktion, die jeder aussagenlogischen Formel ihren Wahrheitswert bezüglich der Belegung $B$ zuordnet, d.h. die Funktion $\hat{B}:\mathbb{F}\to\left\{\texttt{false,true}\right\}$ ist gegeben durch:
+\begin{itemize}
+ \item $\hat{B}(\bot)=\texttt{false}$ und $\hat{B}(\top)=\texttt{true}.$
+ \item Für beliebige atomare Formeln $x$ gilt $\hat{B}(x)=B(x)$.
+ \item Für beliebige Formeln $F$ und $G$ gilt
+ \begin{equation*}
+ \hat{B}(F\land G) = 
+ \begin{cases}
+ \texttt{true} &\text{if } \hat{B}(F)=\top \land \hat{B}(G)=\bot \\
+ \texttt{false} &\text{else}
+ \end{cases}
+ \end{equation*}
+ \item Für beliebige Formeln $F$ und $G$ gilt
+ \begin{equation*}
+ \hat{B}(F\lor G) = 
+ \begin{cases}
+ \texttt{true} &\text{if } \hat{B}(F)=\top \lor \hat{B}(G)=\bot \\
+ \texttt{false} &\text{else}
+ \end{cases}
+ \end{equation*}
+ \item Für beliebige Formeln $F$ gilt
+ \begin{equation*}
+ \hat{B}(\neg F) = 
+ \begin{cases}
+ \texttt{true} &\text{if } \hat{B}(F)=\bot \\
+ \texttt{false} &\text{else}
+ \end{cases}
+ \end{equation*}
+ \item Für beliebige Formeln $F$ und $G$ gilt \\
+ $\hat{B}(F\to G)=\hat{B}(\neg F \lor G)$
+ \end{itemize}
+ \end{minipage}
+\vfill
+
+\subsection{Wahrheitstabellen}
+\begin{minipage}{0.9\linewidth}
+\subsubsection{Teilformeln}%
+\label{ssub:teilformeln}
+	
+Teilformel einer Formel $F$: \\
+\begin{itemize}
+ \item Wenn $F$ eine atomare Formel ist, dann besitzt $F$ nur die Teilformel $F$.
+ \item Wenn $F$ von der Form $A \lor B$, $A \land B$ oder $A \rightarrow B$ ist, dann besitzt $F$ als Teilformeln, neben $F$ selbst, alle Teilformeln von
+				$A$ und $B$.
+ \item Wen $F$ von der Form $\neg A$ ist, dann besitzt $F$ als Teilformeln, neben $F$ selbst, alle Teilformeln von $A$.
+\end{itemize}
+\end{minipage}
+\subsubsection{Wahrheitstabelle}%
+\label{ssub:wahrheitstabelle}
+\begin{minipage}{0.9\linewidth}
+In einer \textit{Wahrheitstabelle} einer Formel $F$ entspricht jede Spalte einer Teilformel von $F$ und jede Zeile einer Belegung der in $F$ vorkommenden Variablen. Es gelten folgende Eigenschaften:
+\begin{itemize}
+ \item In der ersten Zeile stehen Formeln und in allen anderen Zeilen stehen Wahrheitswerte.
+ \item Der letzte Eintrag der ersten Zeile ist die Formel $F$.
+ \item Für Formeln $A$ und $B$ gilt: Wenn $A$ in einer Spalte vor (weiter Links) als B erscheint, dann ist $A$ eine Teilformel von $B$.
+  \item Mit jeder Formel erscheinen auch alle ihre Teilformeln in der Tabelle.
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.9\linewidth}
+\textbf{Beispiel: } Die Teilformeln von der Formel $p_0\to (q\lor p_1)$ sind: $p_0,p_1,q,(q\lor p_1)$ und $p_0\to (q\lor p_1)$. Eine vollständige Wahrheitstabelle von $p_0\to (q\lor p_1)$ ist:
+\\
+        \begin{tabular} {| c | c | c || c | c |}
+            \hline
+            $p_0$ & $q$ & $p_1$ & $q\lor p_1$ & $p_0\to (q\lor p_1)$ \\ \hline
+            0 & 0 & 0 & 0 & 1 \\
+            0 & 0 & 1 & 1 & 1\\
+            0 & 1 & 0 & 1 & 1\\
+            0 & 1 & 1 & 1& 1\\
+            1 & 0 & 0 & 0 & 0\\
+            1 & 0 & 1 & 1 & 1\\
+            1 & 1 & 0 & 1 & 1\\
+            1 & 1 & 1 & 1 & 1\\ \hline
+        \end{tabular}
+\end{minipage}
+
+\subsection{Semantische Eigenschaften}
+
+\subsubsection{Aussagenlogische Formeln}%
+\label{ssub:aussagenlogische_formeln}
+\begin{minipage}{0.9\linewidth}
+Eine aussagenlogische Formel $A$ heisst
+\begin{itemize}
+ \item \textit{Gültig} oder \textit{wahr} unter einer Belegung $B$, falls $\hat{B}(A)=$ \texttt{true}.
+ \item \textit{Allgemeingültig}, wenn sie unter jeder Belegung gültig ist.
+ \item \textit{Unerfüllbar}, wenn $A$ nicht erfüllbar ist.
+ \item \textit{Widerlegbar}, wenn es mindestens eine Belegung gibt, unter der $A$ nicht gültig ist.
+\end{itemize}
+Es seien $F$ und $G$ beliebige aussagenlogische Formeln.
+\begin{itemize}
+ \item $F$ ist eine \textit{Konsequenz} von $G$, falls $F$ unter jeder Belegung wahr ist unter der $G$ wahr ist.
+ \item $F$ und $G$ sind \textit{logisch äquivalent}, wenn $G$ $F$ unter jeder Belegung denselben Wahrheitswert annehmen.
+\end{itemize}
+Sind $F$ und $G$ äquivalente Formeln: $F\equiv G$.
+\end{minipage}
+
+\subsubsection{Aussagenlogische Formeln anhand Wahrheitstabelle}
+\begin{minipage}{0.9\linewidth}
+\begin{itemize}
+    \item \textit{Allgemeingültig}, in der letzten Spalte sind alle Einträge \texttt{true}.
+    \item \textit{Erfüllbar}, in der letzten Spalte ist zumindest ein Eintrag \texttt{false}.
+    \item \textit{Unerfüllbar}, in der letzten Spalte sind alle Einträge \texttt{false}.
+    \item \textit{Widerlegbar}, in der letzten Spalte ist mindestens ein Eintrag \texttt{false}.
+\end{itemize}
+\end{minipage}
+
+\subsubsection{Aussagenlogische Formeln, Regeln}%
+\label{ssub:aussagenlog_formeln_regeln}
+\textit{Sind F, G und H beliebige aussagenlogische Formeln, dann gelten folgende Äquivalenzen:}
+\begin{itemize}
+	\item \textit{Gesetz der doppelten Negation: } $\neg\neg F \equiv F$
+	\item \textit{Absorbtion: } $F \land F  \equiv F$ \textit{ und } $F \lor  F \equiv F$
+	\item \textit{Kommutativität: } $F \land G \equiv G \land F$ \\ \textit{ und } $F \lor G \equiv G \lor F$
+	\item \textit{Assoziativität: } $F \land (G \land H) \equiv (F \land G) \land H$
+	\item \textit{Assoziativität: } $F \lor (G \lor H) \equiv (F \lor G) \lor H$
+	\item \textit{Distributivität: } $F \land (G \lor H) \equiv (F \land G) \lor (F \land H)$
+	\item \textit{Distributivität: } $F \lor (G \land H) \equiv (F \lor G) \land (F \lor H)$
+	\item \textit{De Morgan: } $\neg(F \land G) \equiv \neg F \lor \neg G$
+	\item \textit{De Morgan: } $\neg (F \lor G) \equiv \neg F \land \neg G$
+	\item \textit{Kontraposition: } $F \rightarrow G \equiv \neg G \rightarrow \neg F$ 
+\end{itemize}
+
+\textit{Sind F und G aussagenlogische Formeln, dann gelten:}
+\begin{enumerate}
+ \item \textit{G ist genau dann eine Konsequenz von F, wenn die Formel $F \rightarrow G$ allgemeingültig ist.}
+ \item \textit{F und G sind genau dann logisch äquivalent, wenn die Formel $F \rightarrow G \land G \rightarrow F$ allgemeingültig ist.}
+\end{enumerate}
+
+\subsection{Normalformen}%
+\label{sub:normalformen}
+
+\subsubsection{Literale}%
+\label{ssub:literale}
+\begin{minipage}{0.9\linewidth}
+\textit{Literale} sind atomare Formeln oder negierte atomare Formeln. \\
+Eine Aussagenlogische Formel ist:
+\begin{itemize}
+ \item In \textit{Negationsnormalform} (NNF), wenn alle Negationen in Literalen vorkommen und wenn keine Implikationen ($\to$) vorkommen.
+ \item In \textit{disjunktiver Normalform} (DNF), wenn sie von der Form \\
+ $(L_{1,1}\land L{1,2} \land ...) \lor (L_{2,1} \land L_{2,2} \land ...) \lor (L_{3,1} \land L_{3,2} \land ...)...$ \\
+ mit Literalen $L_{i,j}$ ist.
+ \item In \textit{konjunktiver Normalform} (KNF), wenn sie von der Form \\
+ $(L_{1,1}\lor L{1,2} \lor ...) \land (L_{2,1} \lor L_{2,2} \lor ...) \land (L_{3,1} \lor L_{3,2} \lor ...)...$ \\
+ mit Literalen $L_{i,j}$ ist.
+\end{itemize}
+\end{minipage}
+

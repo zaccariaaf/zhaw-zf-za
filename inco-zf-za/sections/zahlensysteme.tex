@@ -1,0 +1,223 @@
+\section{Zahlensysteme}
+\subsection{Stellenwertsysteme}
+\begin{center}
+    \begin{minipage}{0.65\linewidth}
+        \begin{center}
+            \begin{tabular}{c l}
+                $Z$ & zu berechnende positive Zahl\\
+                $b$ & Basis von $Z$\\
+                $a_i$ & Koeffizient
+            \end{tabular}
+        \end{center}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.3\linewidth}
+        \begin{equation*}
+            Z = \sum_{i=0}^{n} a_i \cdot b^i
+        \end{equation*}
+    \end{minipage}
+\end{center}
+\begin{flushleft}
+    \begin{tabular}{l c l}
+        Dezimal & $10$ & $a_i \in \{0, 1, \dots, 9\}$\\
+        Dual/Binär & $2$ & $a_i \in \{0, 1\}$\\
+        Oktal & $8$ & $a_i \in \{0, 1, \dots, 7\}$\\
+        Hexa & $16$ & $a_i \in \{0, 1, \dots, 9, A, B, C, D, E, F\}$\\
+    \end{tabular}
+\end{flushleft}
+\begin{minipage}{0.3\linewidth}
+	\subsubsection{Binärsystem}
+	\begin{itemize}
+		\item Index b
+		\item In Java \texttt{0b}: \texttt{0b0010 0000}
+	\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\linewidth}
+	\subsubsection{Hexadezimalsysem}
+	\begin{itemize}
+		\item Umfasst 16 Werte
+		\item Index h
+		\item In Java \texttt{0x}: \texttt{0xAF3C}
+	\end{itemize}
+\end{minipage}
+\subsection{Umwandlung Zahlensysteme}
+	Es gilt: $Z = a_n \cdot b^n ... + a_3 \cdot b^3 + a_2 \cdot b^2 + a_1 \cdot b^1 + a_0 \cdot b^0$ \\
+	Wobei $Z$ den gegebenen Wert in einem Zahlensystem der Basis $b$ darstellt. \\
+	Beispiel: $1000_d$ in hexadezimal
+\subsubsection{Binär zu Dezimal}
+\begin{center}
+    \begin{tabular}{c|c|c|c|c|c|c|c}
+        $2^7$ & $2^6$ & $2^5$ & $2^4$ & $2^3$ & $2^2$ & $2^1$ & $2^0$\\
+        $128$ & $64$ & $32$ & $16$ & $8$ & $4$ & $2$ & $1$
+    \end{tabular}
+\end{center}
+\begin{center}
+    \begin{tabular}{c|c|c|c}
+        $2^{-1}$ & $2^{-2}$ & $2^{-3}$ & $2^{-4}$\\
+        $0.5$ & $0.25$ & $0.125$ & $0.0625$
+    \end{tabular}
+\end{center}
+
+\subsubsection{Binär zu Hex}
+\begin{center}
+    \begin{tabular}{c c||c c||c c||c c}
+        $0000$ & $0$ & $0100$ & $4$ & $1000$ & $8$ & $1100$ & $C$\\
+        $0001$ & $1$ & $0101$ & $5$ & $1001$ & $9$ & $1101$ & $D$\\
+        $0010$ & $2$ & $0110$ & $6$ & $1010$ & $A$ & $1110$ & $E$\\
+        $0011$ & $3$ & $0111$ & $7$ & $1011$ & $B$ & $1111$ & $F$\\
+    \end{tabular}
+\end{center}
+
+\subsubsection{Beispiel: Hexadezimal zu Dezimal}
+\begin{enumerate}
+    \item Umwandlung in Binär als Zwischenschritt. Dazu Tabelle verwenden.
+    \[
+        A23_{16} = 1010 0010 0011_2
+    \]
+    \item Umwandlung von Binär in Dezimal mittels 2er Potenzen
+    \[
+        2^{11}+2^9+2^5+2^1+2^0 = 2595_{10}
+    \] 
+    \item Bei einem signed Byte muss der Binärzahl zuerst ein Bit subtrahiert werden (Zweierkomplement bilden, dann addieren), dann invertiert. Danach die Zahl in Dezimal umwandeln und schliesslich ein Minus vor der Zahl setzen.
+\end{enumerate}
+
+\subsubsection{Modulare Arithmetik}
+Falls eine Aufgabe mit Modulo kommt, letzte Ziffern anschauen und dadurch teilbarkeit bestimmen.
+
+\begin{minipage}[t]{0.4\linewidth}
+\subsubsection*{Horner-Schema}
+	\begin{align*}
+		1000 : 16 &= 62 \text{ Rest: }  8 \rightarrow 8\\
+		62 : 16 &=  3 \text{ Rest: } 14 \rightarrow E\\
+		3 : 16 &=  0 \text{ Rest: } 3 \rightarrow 3\\
+		1000_10 &= 3E8_16
+	\end{align*}
+
+\subsubsection*{Zweierkomplement}
+	\begin{align*}
+		+2_d = &00000010_b\\
+		\text{invertieren: } &11111101 \\
+		\text{1 addieren: } &00000001 \\
+		-2_d = &11111110_b
+	\end{align*}
+	
+\subsubsection*{Einerkomplement}
+	\begin{align*}
+		0_d = &00000000_b\\
+		\text{invertieren: } &11111111 \\
+		\text{1 addieren: } &00000001 \\
+		0_d = &00000000_b
+	\end{align*}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\linewidth}
+\subsubsection*{Kommastellen}
+	\begin{align*}
+		26.6875_d &= 26_d + 0.6876_d \\
+		\\
+		26_d : 2 &= 13 \text{ Rest: } 0 \\
+		13_d : 2 &= 6 \text{ Rest: } 1 \\
+		6_d : 2 &= 0 \text{ Rest: } 0 \\
+		3_d : 2 &= 0 \text{ Rest: } 1 \\
+		1_d : 2 &= 0 \text{ Rest: } 1 \\
+		\\
+		0.6875_d \cdot 2 &= 0.3750 + 1 \\
+		0.3750_d \cdot 2 &= 0.7500 + 0 \\
+		0.7500_d \cdot 2 &= 0.5000 + 1 \\
+		0.5000_d \cdot 2 &= 0.0000 + 1 \\
+		\\
+		26.6875_d &= 11010.1011_b
+	\end{align*}
+\end{minipage}
+\subsubsection{Neuner, bzw. Zehnerkomplement}%
+\label{ssub:neuner_bzw_zehnerkomplement}
+Für das Neunerkomplement einer Dezimalzahl notiert man jeweils für jede Ziffer deren Unterschied zu 9. Für das Zehnerkomplement addiert man 1. Wenn man mittels Neunerkomplement Subtrahieren möchte, bildet man das Zehnerkomplement des Subtrahenden und addiert die Zahlen schliesslich. Der Übertrag wird dabei ignoriert.
+
+
+\subsection{Endliche Zahlen}
+\begin{tabular}{| c | c | c | c |}
+	\hline
+	Reg. & Bez. & Unsinged & Int \\
+	\hline
+	\hline
+	4 Bit & Nibble & $0 ... 15_d$ & $-8 ... +7$ \\
+	\hline
+	8 Bit & Byte & $255_d$ & $-128$/$127$ \\
+	\hline
+	16 Bit & Word & $65535_d$ & $-32768$/$32767$ \\
+	\hline
+	32 Bit & d. Word & $4.29_d \cdot 10^9$ & $\pm 2.15 \cdot 10^9$ \\
+	\hline
+	64 Bit & l. Word & $1.84_d \cdot 10^{19}$ & $\pm 9.22 \cdot 10^{18}$ \\
+	\hline
+	128 Bit & d.l. Word & $3.40_d \cdot 10^{38}$ & $\pm 1.70 \cdot 10^{38}$ \\
+	\hline
+\end{tabular}
+
+\subsection{Carry und Overflow}
+\begin{itemize}
+	\item \textit{Carry} bezeichnet übertrag bei Operation die die Grösse des Registers überschreitet.
+	\item Übertrag nach unten wird als \textit{borrow} bezeichnet.
+	\item Bei vorzeichenbehafteten Zahlen tritt der Sprung dort auf, wo MSB wechselt.
+	\item Bei MSB = 0 ist Registerinhalt null oder positiv. Bei MSB = 1 ist die Zahl negativ.
+	\item \textit{Overflow} = vorzeichenbehafteter Übertrag.
+	\item Für Carry, Borrow und Overflow existiert ein Flag im Mikroprozessor.
+\end{itemize}
+
+\subsection{Addition und Subtraktion}
+\begin{enumerate}
+	\item Summanden untereinander auflisten.
+	\item Summanden bitweise addieren, dabei Übertrag beachten.
+	\item Bei der Subtraktion das Zweierkomplement bilden und schliesslich addieren.
+	\item Übertrag von MSB ignorieren.
+\end{enumerate}
+
+\subsection{Multiplikation}
+\begin{center}
+    \begin{minipage}[t]{0.70\linewidth}
+        \begin{enumerate}
+            \item Bitweise Multiplikation des Multiplikanden $a$ mit $b_i$ des Multiplikator.
+            \item Sukzessive Multiplikationen werden um ein Bit ($0$) nach links verschoben.
+            \item Anzahl Nachkommabits ergibt sich aus der Summe der Anzahl Nachkommabits der Operatoren.
+        \end{enumerate}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.25\linewidth}
+        \begin{align*}
+            b_0 \cdot a&\\
+            +b_1 \cdot a~0\\
+            +b_2 \cdot a~0~0&\\
+            +b_3 \cdot a~0~0~0&\\
+            \hline
+            =\text{Sum}&
+        \end{align*}
+    \end{minipage}
+\end{center}
+
+\subsection{Division}
+\begin{center}
+    \begin{minipage}{0.7\linewidth}
+        \begin{enumerate}
+            \item Identifiziere Teil des Divident $>$ Divisor (Unterblock). Für jede Stelle, sodass Divident $<$ Divisor, 0 in Quotient.
+            \item Unterblock $-$ Divisor, 1 an Quotient anhängen, Rest behalten.
+            \item An das Resultat der Subtraktion Bits des Dividenten anhängen. Wiederholen bis Subtraktion 0 ergibt.
+        \end{enumerate}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.25\linewidth}
+        \begin{adjustbox}{angle=90}
+            \setlength{\tabcolsep}{0.3mm}
+            \footnotesize
+            \begin{tabular}{rcc|l}
+                \multicolumn{4}{c}{${\color{darkgreen}11100}:0111 = {\color{blue}0100}$}\\
+              \hline
+              ${\color{darkgreen}1}$ & \% & $111 = {\color{blue}0}$ & $R={\color{pastelviolet!50!red} 1}$\\
+              ${\color{pastelviolet!50!red} 1}{\color{darkgreen}1}$ & \% & $111 = {\color{blue}0}$ & $R={\color{pastelviolet!50!red}11}$\\
+              ${\color{pastelviolet!50!red} 11}{\color{darkgreen}1}$ & \% & $111 = {\color{blue}1}$ & $R={\color{pastelviolet!50!red}000}$\\
+              ${\color{pastelviolet!50!red} 000}{\color{darkgreen}0}$ & \% & $111 = {\color{blue}0}$ & $R={\color{pastelviolet!50!red}0000}$\\
+              ${\color{pastelviolet!50!red} 0000}{\color{darkgreen}0}$ & \% & $111 = {\color{blue}0}$ & $R={\color{pastelviolet!50!red}00000}$\\
+            \end{tabular}
+        \end{adjustbox}
+    \end{minipage}
+\end{center}

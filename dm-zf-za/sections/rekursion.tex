@@ -1,0 +1,189 @@
+\section{Rekursive Strukturen und die natürlichen Zahlen}
+\subsection{Peano-Axiome}
+\begin{itemize}
+	\item Die Zahl 0 ist eine natürliche Zahl. Jede natürliche Zahl $k$ hat genau einen Nachfolger $k+1A$. Der Nachfolger jeder natürlichen Zahl ist wiederum eine natürliche Zahl.
+	\item Die Zahl 0 ist die einzige natürliche Zahl, die kein Nachfolger ist.
+	\item Jede natürliche Zahl ist Nachfolger von höchstens einer natürlichen Zahl.
+	\item Das \textit{Prinzip der vollständigen Induktion} es sei $a{n}$ eine Eigenschaft von natürlichen Zahlen. Aus beiden Voraussetzungen
+	      \begin{itemize}
+		      \item \textbf{Induktionsverankerung (I.V.):} $A(0)$
+		      \item \textbf{Induktionsschritt (I.S.):} $\forall n\in \mathbb{N}\,(A(n)\Rightarrow A(n+1))$,
+	      \end{itemize}
+	      folgt die Gültigkeit von $\forall n\in\mathbb{N}\,(A(n))$.
+\end{itemize}
+
+\subsubsection{Vollständige Induktion - Beispiel}
+Wir betrachten die Eigenschaft $A(n)$, die besagt, dass die Summe aller natürlichen Zahlen bis $n$ halb so gross wie die Zahl $n(n+1)$ ist:
+\[
+	0+1+\dots+n =\frac{n(n+1)}{2}.
+\]
+Wir beweisen nun per Induktion nach $n$, dass die Eigenschaft $A(n)$ für jede natürliche Zahl $n$ zutrifft.
+Wir zeigen zuerst die Induktionsverankerung:
+\begin{itemize}
+	\item \textbf{Verankerung ($n=0$):} $A(0)$ gilt, weil
+	      \[
+		      0=\frac{0\cdot 1}{2}
+	      \]
+	      offensichtlich korrekt ist.
+	\item \textbf{Schritt ($n\to n+1$):} Für den Induktionsschritt müssen wir zeigen, dass für jede natürliche Zahl $n$ mit der Eigenschaft $A(n)$ auch $A(n+1)$ gilt. Wir nehmen dazu an, dass $n$ eine beliebige solche natürliche Zahl sei und betrachten
+\end{itemize}
+\begin{align*}
+	0+1+\dots +n+(n+1) & =(0+1+\dots +n)+(n+1)                    \\
+	                   & \stackrel{A(n)}{=}\frac{n(n+1)}{2}+(n+1) \\
+	                   & =\frac{n(n+1)+2(n+1)}{2}                 \\
+	                   & =\frac{(n+1)(n+2)}{2}.
+\end{align*}
+Daraus folgt der Induktionsschritt.
+
+\subsubsection{Induktion mit Mengen}
+Für jede Menge $X$ von natürlichen Zahlen gilt: Wenn $X$ die Bedingungen
+\begin{itemize}
+	\item Induktionsverankerung: $0\in X$
+	\item Induktionsschritt: $\forall n\,(n\in X\Rightarrow n+1\in X)$
+\end{itemize}
+erfüllt, dann ist bereits $X=\mathbb{N}$
+Ist $E(n)$ das Prädikat $n\in X$, dann folgt mit vollständiger Induktion sofort $\forall n\, (E(n))$ und somit $\mathbb{N}=X$.
+
+\subsubsection{Ordnung $\leq$ auf den natürlichen Zahlen}
+Die Ordnung $\leq$ auf den natürlichen Zahlen ist durch
+\[
+	x\leq y:\Leftrightarrow \exists k\in\mathbb{N}\,(x+k=y)
+\]
+gegeben. Wir schreiben weiter
+\[
+	x<y:\Leftrightarrow x\leq y\land x\neq y.
+\]
+
+\subsubsection{Sätze zu Induktion}
+\textbf{Satz} Jede nichtleere Menge von natürlichen Zahlen hat ein minimales Element. \\
+\textbf{\textit{Beweis}}
+Wir zeigen, dass jede Menge von natürlichen Zahlen, die kein minimales Element enthält, leer ist. Dazu wählen wir eine beliebige Menge $X\subseteq\mathbb{N}$ ohne minimales Element. Um zu zeigen, dass die Menge $X$ leer ist, genügt es zu zeigen, dass die Menge
+\[
+	Y=\{n\in\mathbb{N}\mid \forall x\in X\,(n<x) \}
+\]
+aller natürlichen Zahlen, die ``unterhalb'' von $X$ liegen, bereits alle natürlichen Zahlen enthält. Wir zeigen $Y=\mathbb{N}$.
+\begin{itemize}
+	\item \textbf{Verankerung:} Es gilt $0\in Y$, weil sonst $0$ das minimale Element von $X$ wäre, was unserer Wahl von $X$ widerspricht.
+	\item \textbf{Induktionsschritt:} Ist $n\in Y$, dann gilt für alle Elemente $x$ von $X$ die Ungleichung $n<x$. Es gilt daher $n+1\leq x$ für alle Elemente $x$ von $X$. Da $n+1$ kein minimales Element von $X$ sein kann, gilt daher $n+1\in Y$.
+\end{itemize}
+Es folgt nun, dass $Y=\mathbb{N}$ und somit wie gewünscht $X=\varnothing$ ist.
+\\
+
+\textbf{Satz}
+Es gibt keine unendlich absteigende Folge
+\[
+	a_0>a_1>\dots >a_n>a_{n+1}>\dots
+\]
+von natürlichen Zahlen. \\
+\textbf{\textit{Beweis}}
+Gäbe es eine absteigende Folge
+\[
+	a_0>a_1>\dots >a_n>a_{n+1}>\dots,
+\]
+dann hätte die Menge
+\[
+	\{
+	a_0,a_1,\dots,a_n,a_{n+1},\dots \}
+\]
+kein minimales Element.
+
+\subsubsection{Der kleinste Verbrecher}
+Die Beweismethode des ``kleinsten Verbrechers'' geht wie folgt: Will man zeigen, dass alle natürlichen Zahlen eine Eigenschaft $E$ haben, dann geht man davon aus, dass wenn dies nicht der Fall wäre, es eine kleinste natürliche Zahl $n_0$ (den kleinsten Verbrecher) gäbe, die \textit{nicht} die Eigenschaft $E$ hat. Führt man diese Annahme zu einem Widerspruch, so hat man die ursprüngliche Behauptung bewiesen. Obwohl die Methode des ``kleinsten Verbrechers'' also nichts anderes als die Kombination eines Widerspruchsargumentes mit Satz~\ref{satz:minimumprinzip} ist, handelt es sich doch um eine sehr ``anwenderfreundliche'' und einprägsame Beschreibung dieser Argumentationsfolge.
+\\
+\textbf{\textit{Beispiel }} Wir benützen die Methode des ``kleinsten Verbrechers'' um zu beweisen, dass jede natürliche Zahl, die mindestens zwei Teiler hat, mindestens einen Primfaktor besitzt (von einer Primzahl geteilt wird).
+Es sei $n_0$ die kleinste natürliche Zahl mit mindestens zwei Teilern, die keine Primfaktoren besitzt (der ``kleinste Verbrecher''). Da $n_0$ keine Primfaktoren hat, ist $n_0$ selbst auch keine Primzahl und es gilt $n_0\neq 0$. Es folgt somit, dass ein Teiler $1<x<n_0$ von $n_0$ existieren muss. Da $1<x$ gilt, hat $x$ mindestens zwei Teiler ($1$ und $x$) und somit, wegen $x<n_0$, einen Primfaktor $p$. Da die Teilbarkeitsrelation transitiv ist, muss $p$ aber auch ein Primfaktor von $n_0$ sein. Dies ist der gesuchte Widerspruch.
+
+\subsection{Rekursive Definitionen}
+Ist $M$ eine beliebige Menge und $G:M\times\mathbb{N}\rightarrow M$ sowie $c\in M$, dann gibt es eine eindeutig bestimmte Funktion $F:\mathbb{N}\rightarrow M$, welche die Gleichungen (Rekursionsgleichungen)
+\begin{align*}
+	F(0)   & =c                                    \\
+	F(k+1) & =G(\underbrace{F(k)}_{Selbstbezug},k)
+\end{align*}
+erfüllt.
+\\
+Die Behauptung besteht aus einer Eindeutigkeitsaussage und einer Existenzaussage:
+\begin{itemize}
+	\item Die Funktion $F:\mathbb{N}\to M$ ist durch die Rekursionsgleichungen eindeutig bestimmt. Das heisst, dass es keine andere  Funktion gibt, die den Rekursionsgleichungen von $F$ genügt.
+	\item Es gibt überhaupt eine Funktion, die den Rekursionsgleichungen genügt.
+\end{itemize}
+Wir beweisen zuerst die Eindeutigkeitsbedingung. Wir nehmen an, dass $F$ und $H$ zwei Funktionen sind, die beide die oben genannten Rekursionsgleichungen erfüllen und zeigen, dass daraus $F=H$ folgt. Es genügt mit Induktion zu zeigen, dass für jede natürliche Zahl $n\in \mathbb{N}$ die Gleichung $F(n)=H(n)$ gilt (weil dann $H=F$ gilt).
+\begin{itemize}
+	\item Verankerung ($n=0$): Aufgrund von
+	      \[
+		      F(0)=c=H(0)
+	      \]
+	      ist die Induktionsverankerung erfüllt.
+	\item Schritt ($n\to n+1$): Wir nehmen an, dass $F(n)=H(n)$ gilt und müssen $F(n+1)=H(n+1)$ beweisen. Dies folgt sofort aus
+	      \[
+		      F(n+1)=G(F(n),n)\stackrel{IA}{=}G(H(n),n)=H(n+1).
+	      \]
+\end{itemize}
+
+\subsubsection{Arithmetische Grundoperatioinen rekursiv definiert}
+\begin{itemize}
+	\item Addition von natürlichen Zahlen
+	      \[
+		      x + 0 = x
+		      x + (n + 1) = (x + n) + 1
+	      \]
+	\item Die Multiplikation von natürlichen Zahlen
+	      \[
+		      x \cdot 0 = 0
+		      x \cdot (n+1) = (x \cdot n) + x
+	      \]
+	\item Die Exponenten von natürlichen Zahlen
+	      \[
+		      x^0 = 1
+		      x^{n+1} = x \cdot x^n
+	      \]
+	\item Die Fakultätsfunktion
+	      \[
+		      0! = 1
+		      (n + 1)! = n! \cdot (n+1)
+	      \]
+	\item Endliche Summen
+	      \[
+		      \sum_{i=1}^{0}a_i = 0
+		      \sum_{i=1}^{n+1}a_i = (\sum_{i=0}^{n}a_i) + a_{n+1}
+	      \]
+\end{itemize}
+
+\subsubsection{Rechenregeln für Addition}
+\begin{itemize}
+	\item Neutrales Element: $0 + n = n$
+	\item Kommutativität: $n+m = m+ n$
+	\item Assoziativität: $(n+m) + k = n + (m+k)$
+	\item Kürzbarkeit: $n + k = m + k \implies n = m$
+\end{itemize}
+
+\subsubsection{Rechenregeln für Multiplikation}
+\begin{itemize}
+	\item Absorbtion: $0 \cdot n = 0$
+	\item Neutrales Element: $1 \cdot n = n$
+	\item Kommutativität: $n \cdot m = m \cdot n$
+	\item Assoziativität: $n \cdot (m \cdot k) = (n \cdot m) \cdot k$
+	\item Distributivität: $n \cdot (m + k) = nm + k$
+\end{itemize}
+
+\subsubsection{Rechenregeln für Partialsummen}
+Sind $(a_i)_{i\in\mathbb{N}}$ und $(a_i)_{i\in\mathbb{N}}$ beliebige Folgen und ist $c\in\mathbb{N}$, dann gilt für jedes $n\in\mathbb{N}$:
+\[
+	\sum_{i=1}^n(ca_i+cb_i)=c\big(\sum_{i=1}^na_i+\sum_{i=1}^nb_i\big)
+\]
+
+Induktion nach $n$.
+\begin{itemize}
+	\item Verankerung ($n=0$): Die Verankerung gilt aufgrund von
+	      \begin{align*}
+		      \sum_{i=1}^0(ca_i+cb_i)=0=c(0+0)=c\big(\sum_{i=1}^0a_i+\sum_{i=1}^0b_i\big).
+	      \end{align*}
+	\item Schritt ($n\to n+1$):
+	      \begin{align*}
+		      \sum_{i=1}^{n+1}(ca_i+cb_i) & =\big(\sum_{i=1}^n(ca_i+cb_i)\big)+(ca_{n+1}+cb_{n+1})                        \\
+		                                  & =\big(\sum_{i=1}^n(ca_i+cb_i)\big)+c(a_{n+1}+b_{n+1})                         \\
+		                                  & \stackrel{IA}{=}c\big(\sum_{i=1}^na_i+\sum_{i=1}^nb_i\big)+c(a_{n+1}+b_{n+1}) \\
+		                                  & =c\big( \sum_{i=1}^na_i+\sum_{i=1}^nb_i+a_{n+1}+b_{n+1} \big)                 \\
+		                                  & =c\big( \sum_{i=1}^na_i+a_{n+1}+\sum_{i=1}^nb_i+b_{n+1} \big)                 \\
+		                                  & =c\big( \sum_{i=1}^{n+1}a_i+\sum_{i=1}^{n+1}b_i\big)\qedhere
+	      \end{align*}
+\end{itemize}

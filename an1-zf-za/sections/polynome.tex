@@ -1,0 +1,48 @@
+\section{Polynome}
+	\subsection{Polynomfunktion}
+	\begin{minipage}{1\linewidth}
+		\begin{definition}{Definition 6}
+			Eine Polynomfunktion ist eine Funktion der Form:
+			\begin{align*}
+			&y = f(x) = a_n \cdot x^n + a_{n-1} \cdot x^{n-1} + ... + a_1 
+			\cdot x + a_0 \text{ mit } a_n \neq
+			0 \\
+			&n: \quad \text{Grad der Polynomfunktion} \\ 
+			&a_0,a_1,...,a_n \in \mathbb{R}: \quad \text{Koeffizienten} \\
+			&\text{Definitionsbereich:} \quad \mathbb{R}
+			\end{align*}
+		\end{definition}
+	\end{minipage}
+
+	\subsection{Horner-Schema}
+	\begin{minipage}{1\linewidth}
+		Effizientes Verfahren um ein Polynom auszurechnen. \\
+		Nach unten wird addiert, diagonal mit $x_0$ multipliziert. \\
+		\begin{tabular}{c | c c c c c}
+			      & $a_4$ & $a_3$ & $a_2$ & $a_1$ & $a_0$ \\
+			$x_0$ &       & $b_3 \cdot x_0$ & $b_2 \cdot x_0$ & $b_1 \cdot x_0$ & $b_0 \cdot x_0$ \\ 
+			\hline
+			    & $b_3$ & $b_2$ & $b_1$ & $b_0$ & $f(x_0)$
+		\end{tabular}
+	\end{minipage}
+
+	\subsection{Zerlegungssatz}
+	\begin{minipage}{1\linewidth}
+		Ist $x_0$ eine Nullstelle der Polynomfunktion $f(x)$, dann gibt es eine bestimmte Polynomfunktion
+		$q(x)$, so dass gilt:
+		\begin{align*}
+			f(x) = (x-x_0) \cdot q(x) \quad \text{für jedes } x	
+		\end{align*}
+	\end{minipage}
+
+	\subsection{Nullstellen von Polynomfunktionen}
+	\begin{minipage}{1\linewidth}
+		\textbf{Satz 1} Eine Polynomfunktion vom Grad $n$ hat höchstens $n$ Nullstellen. \\
+		\\
+		$x_0$ heisst \textit{m-fache Nullstelle} (oder \textit{Nullstelle der Multiplizität m}) der
+		Polynomfunktion $f(x)$, falls es eine bestimmte Polynomfunktion $g(x)$ gibt, so dass gilt:
+	\begin{equation*}
+		f(x) = (x - x_0)^m \cdot g(x) \quad \text{für jedes } x
+	\end{equation*}
+	\end{minipage}
+\hfill

@@ -1,0 +1,457 @@
+\section{Elementare Zahlentheorie}
+\subsection{Rechenregeln auf $\mathbb{Z}$}
+
+\begin{align*}
+	-1\cdot z & =-z                                                                 \\
+	-(-z)     & =z                                                                  \\
+	-z+z      & =0                      & \text{ Inverse Elemente bezüglich }+      \\
+	0\cdot z  & =0                      & \text{ Absorbtion}                        \\
+	1\cdot z  & =z                      & \text{ Neutrales Element bezüglich }\cdot \\
+	0+z       & =z                      & \text{ Neutrales Element bezüglich }+     \\
+	r(sz)     & =(rs)z                  & \text{ Assoziativität von } \cdot         \\
+	r+(s+z)   & =(r+s)+z                & \text{ Assoziativität von }+              \\
+	rs        & =sr                     & \text{ Kommutativität von }\cdot          \\
+	r+s       & =s+r                    & \text{ Kommutativität von }+              \\
+	r(s+z)    & =rs+sz                  & \text{ Distributivität}                   \\
+	rx=ry     & \Rightarrow x=y\lor r=0 & \text{Kürzbarkeit}
+\end{align*}
+
+\subsubsection{Subtraktion}
+Wir definieren die \textit{Subtraktion}
+\[
+	-:\mathbb{Z}\times\mathbb{Z}\rightarrow\mathbb{Z}
+\]
+durch
+\[
+	x-y:=x+(-y),
+\]
+die \textit{Betragsfunktion}
+\[
+	|\cdot|:\mathbb{Z}\rightarrow\mathbb{N}
+\]
+durch
+\[
+	|z|=\begin{cases}
+		z         & \text{falls } z\in\mathbb{N} \\
+		-1\cdot z & \text{sonst}
+	\end{cases}
+\]
+und die Relation $\leq$ durch
+\[
+	x\leq y:\Leftrightarrow\,\exists n\in\mathbb{N}\,(x+n=y).
+\]
+
+\subsection{Teilbarkeit und euklidischer Algorithmus}
+Sind $x,y\in\mathbb{Z}$ ganze Zahlen, so sagen wir, dass $x$ \textit{ein Teiler von} $y$ ist, falls es ein $k\in\mathbb{Z}$ gibt mit $xk=y$. Wir schreiben in diesem Fall $x|y$. Es gilt also
+\[
+	x|y:\Leftrightarrow \exists k\in\mathbb{Z}(y=xk).
+\]
+Mit $T(y)$ bezeichnen wir die Menge aller natürlichen Zahlen, welche Teiler von $y$ sind, also $T(y)=\{x\in\mathbb{N}\mid x|y\}$.
+
+Die Teilbarkeitsrelation ist reflexiv und transitiv auf der Menge $\mathbb{Z}$
+
+\subsubsection{Teilen mit Rest}
+Sind $n,m\in\mathbb{N}\backslash\{0\}$, dann gibt es eindeutig bestimmte Zahlen $k,r\in\mathbb{N}$, so dass Folgendes gilt:
+\begin{enumerate}
+	\item $m=kn+r$
+	\item $r<n$
+\end{enumerate}
+Wir sagen in diesem Zusammenhang, dass die Zahl $r$ den \textit{Rest} von der (ganzzahligen) Division von $m$ durch $n$ ist.
+
+\subsubsection{kgV und ggT}
+Seien $n,m\in\mathbb{Z}$. Wir definieren das \textit{kleinste gemeinsame Vielfache von $n$ und $m$} als
+\[
+	kgV(n,m):=\min\{k\in\mathbb{N}\mid n|k\wedge m|k\}.
+\]
+Ist $n\neq0$ oder $ m\neq 0$, dann definieren wir den \textit{grössten gemeinsamen Teiler} von $n$ und $m$ als
+\[
+	ggT(n,m):=\max\{k\in\mathbb{N}\mid k|n\wedge k|m\}.
+\]
+
+Sind $x,y,z\in\mathbb{Z}$, dann sind folgende Aussagen äquivalent:
+\begin{enumerate}
+	\item[1.] $ x|y\wedge x|z$
+	\item[2.] $x|y\wedge x|(y-z) $
+\end{enumerate}
+
+$1.\Rightarrow 2.$: Wenn $x|y\wedge x|z$, dann gibt es ganze Zahlen $k,k'\in\mathbb{Z}$, so dass $y=kx$ und $z=k'x$. Es gilt also $y-z=kx-k'x=(k-k')x$.
+
+$2.\Rightarrow 1.$: Es seien $k,k'\in\mathbb{Z}$, so dass $y=kx$ und $y-z=k'x$. Durch Einsetzen erhält man $ kx-z=k'x $ und somit $z=kx-k'x=x(k-k')$.
+
+\subsubsection{Euklidischer Algorithmus}
+Für $n,m\in\mathbb{N}$ mit $0<n< m$ gilt
+\[
+	ggT(n,m)=ggT(n,m-n)=ggT(m,m-n).
+\]
+Es folgt für $n,m\in\mathbb{N}$ mit $n<m$
+\[
+	\{k\in\mathbb{N}\mid k|n\wedge k|m\}=\{k\in\mathbb{N}\mid k|n\wedge k|(m-n)\}.
+\]
+Daraus folgt weiter
+\[
+	ggT(n,m)=\max\{k\in\mathbb{N}\mid k|n\wedge k|m\}=
+\]
+\[
+	\max\{k\in\mathbb{N}\mid k|n\wedge k|(m-n)\}=ggT(n,m-n).
+\]
+Die Gleichung
+\[
+	ggT(n,m)=ggT(m,m-n)
+\]
+folgt analog aus Lemma 4.
+\\
+Aus dem eben bewiesenen Satz erhalten wir direkt einen rekursiven Algorithmus zur Berechnung des $ggT$. Beispielhaft geht man dabei wie folgt vor:
+\begin{align*}
+	ggT(45,25) & \stackrel{Satz~\ref{satz:euklid}}{=}ggT(25,20)  \\
+	           & \stackrel{Satz~\ref{satz:euklid}}{=}ggT(20,5)   \\
+	           & \stackrel{Satz~\ref{satz:euklid}}{=}ggT(5,15)   \\
+	           & \stackrel{Satz~\ref{satz:euklid}}{=}ggT(5,10)   \\
+	           & \stackrel{Satz~\ref{satz:euklid}}{=}ggT(5,5)=5.
+\end{align*}
+
+
+Betrachten wir nochmals den Satz~\ref{satz:euklid}, dann sehen wir, dass wir mehrere Schritte zu einem einzigen Schritt zusammenfassen können. Bei $x>y$ wird nämlich, zum Berechnen von $ggT(y,x)$ so oft $y$ von $x$ subtrahiert, bis das Resultat kleiner oder gleich $y$ ist. Man kann all diese Subtraktionen also durch eine einzige Division mit Rest ersetzen.
+Die beispielhafte Berechnung von $ggT(45,25)$ können wir nun als $2$ Divisionen mit Rest darstellen:
+\begin{align*}
+	45 & = 1 \cdot 25 + 20                           \\
+	25 & = 1 \cdot 20 + \underbrace{5}_{ggT(45,25)}.
+\end{align*}
+Zusammenfassend stellen wir fest, dass
+\[
+	ggT(y,x)=ggT(y,R(x,y))
+\]
+mit
+\[
+	R(x,y)=\text{ der Rest der Division von }x\text{ durch }y
+\]
+gilt. Die Funktion $R(x,y)$ steht in vielen Programmiersprachen als ``modulo Funktion'' zur Verfügung und wird im Quellcode oft durch das Prozentzeichen $\%$ aufgerufen. Dies eröffnet die Möglichkeit den euklidischen Algorithmus kompakter zu notieren:\\
+
+\subsubsection{Lemma von Bézout}
+
+Sind $x,y\in\mathbb{Z}$ mit $x,y\neq 0$, dann gibt es ganze Zahlen $a,b$ so dass
+\[
+	ggT(x,y)=ax+by
+\]
+gilt.
+
+Wir beweisen das Theorem exemplarisch für den Fall, dass $ggT(m,n)=1$ gilt. Ohne Einschränkung sei $m>n$. Sind $x,y$ beliebige ganze Zahlen, dann bezeichnen wir
+\begin{align*}
+	R(x,y):=\begin{cases}
+		\text{ Der Rest von der ganzzahligen Division von $x$ durch $y$} & \text{falls }x,y>0 \\
+		0                                                                & \text{sonst.}
+	\end{cases}
+\end{align*}
+Wir definieren rekursiv eine absteigende Folge $(r_i)_{i\in\mathbb{N}}$ von natürlichen Zahlen wie folgt:
+\begin{align*}
+	r_i=\begin{cases}
+		m                  & \text{falls }i=0 \\
+		n                  & \text{falls }i=1 \\
+		R(r_{i-2},r_{i-1}) & \text{sonst.}
+	\end{cases}
+\end{align*}
+Da es keine echt absteigende Folge von natürlichen Zahlen gibt, muss die Folge der $(r_i)_{i\in\mathbb{N}}$ stationär werden. Es folgt also aus der Definition der Folge $(r_i)_{i\in\mathbb{N}}$, dass es ein $p\in\mathbb{N}$ gibt, so dass $r_{p}\neq0$ und für alle $p`>p$ gilt $r_{p`}=0$. Es sei $(\lambda_i)_{i\in\mathbb{N}}$ die durch $(r_i)_{i\in\mathbb{N}}$ eindeutig bestimmte Folge natürlicher Zahlen mit der Eigenschaft (*):
+\begin{align*}
+	r_0     & =\lambda_0\cdot r_1+r_2           \\
+	r_1     & =\lambda_1\cdot r_2+r_3           \\
+	        & \vdots                            \\
+	r_{p-2} & =\lambda_{p-2}\cdot r_{p-1}+r_{p}
+\end{align*}
+\textbf{Behauptung}: $r_p=1$\\
+\textbf{Beweis}: Wir zeigen, dass $r_p$ ein Teiler von allen $r_i$ mit $i\leq p$ ist. Weil $r_0=m,r_1=n$ teilerfremd sind, gilt dann $r_p=1$. Wir beweisen mit (der allgemeinen Version von) Induktion für alle $k\in\mathbb{N}$, dass entweder $r_p|r_{p-k}$ oder $k>p$ gilt.
+Falls $k>p$ ist, dann sind wir fertig. Wir können also ohne Einschränkung der Allgemeinheit annehmen, dass $k\leq p$ gilt. Nach Induktionsannahme ist nun $r_p$ ein Teiler von $r_{p-(k-1)}$ und von $r_{p-(k-2)}$, es gibt also ganze Zahlen $x,y$ mit $x\cdot r_p=r_{p-(k-1)}$ und $y\cdot r_p=r_{p-(k-2)}$. Insgesamt haben wir dann
+\begin{align*}
+	r_{p-k}=\lambda_{p-k}\cdot r_{p-k+1}+r_{p-k+2}=\lambda xr_{p}+yr_{p}=r_{p}(\lambda x+y)
+\end{align*}
+und somit wie gewünscht, dass $r_p$ ein Teiler von $r_{p-k}$ ist.\\
+Wir können nun das Gleichungssystem $(*)$ als
+\begin{align*}
+	r_0     & =\lambda_0\cdot r_1+r_2       \\
+	r_1     & =\lambda_1\cdot r_2+r_3       \\
+	        & \vdots                        \\
+	r_{p-2} & =\lambda_{p-2}\cdot r_{p-1}+1
+\end{align*}
+schreiben. Dies ist jedoch mit
+\begin{align*}
+	1                            & =r_{p-2}-\lambda_{p-2}r_{p-1}                                   \\
+	r_{p-1}                      & =r_{p-3}-\lambda_{p-3}r_{p-2}                                   \\
+	                             & \vdots                                                          \\
+	r_{p-i}                      & =r_{p-i-2}-\lambda_{p-i-2}r_{p-i-1}                             \\
+	                             & \vdots                                                          \\
+	\underbrace{r_{p-p+2}}_{r_2} & =\underbrace{r_{p-p}}_{m}-\lambda_{0}\underbrace{r_{p-p+1}}_{n}
+\end{align*}
+äquivalent. Indem wir nun sukzessiv (von unten beginnend) in jeder Zeile des Gleichungssystems die $r_i$ auf der rechten Seite durch eine Summe von Vielfachen von $n$ und $m$ ersetzen, erhalten wir zuoberst im Gleichungssystem für geeignete $s,\delta_i,\gamma_i$ eine Gleichung von der gewünschten Gestalt
+\[
+	1=\sum_{i=1}^{s}\delta_in-\gamma_im=\sum_{i=1}^{s}\delta_in-\sum_{i=1}^{s}\gamma_im=n\sum_{i=1}^{s}\delta_i-m\sum_{i=1}^{s}\gamma_i.\qedhere
+\]
+
+\subsection{Primzahlen}
+
+Eine natürliche Zahl $p \in \mathbb{N}$ ist eine \textit{Primzahl}, wenn $|T(p)|=2$ gilt. Die Menge aller Primzahlen bezeichnen wir mit $\mathbb{P}$. \\
+Ist $p$ eine Primzahl, dann gilt $T(p)=\{1,p\}$.\\
+
+\subsubsection{Lemma von Euklid}
+Primzahlen haben die Eigenschaft, dass sie mit jedem Produkt auch mindestens einen der Faktoren teilen. Umgekehrt ist auch jede von $1$ verschiedene natürliche Zahl mit dieser Eigenschaft eine Primzahl. Diese Tatsache wird als Lemma von Euklid bezeichnet.
+\\
+
+Folgende Aussagen sind für $p\in\N$ mit $p\neq 1$ äquivalent:
+\begin{enumerate}
+\item[1.] $\forall n,m\in\N\,\big(p|nm\Rightarrow p|n\vee p|m\big)$
+\item[2.] $p\in\mathbb{P}$
+\end{enumerate}
+
+ $1\Rightarrow 2$: Wir müssen zeigen, dass eine natürliche Zahl $p$ mit der Eigenschaft wie in $1.$ bereits eine Primzahl ist. Wir nehmen an, dass $p$ die in $1.$ postulierte Eigenschaft besitzt und dass $x\in \N$ ein Teiler von $p$ ist. Wir müssen zeigen, dass $x=1$ oder $x=p$ gilt. Da $x$ ein Teiler von $p$ ist, gibt es eine natürliche Zahl $y$ mit $xy=p$, insbesondere gilt also $p|xy$. Wegen $1.$ gilt also $p|x$ oder $p|y$, daraus folgt $p=x$ oder $p=y$ (Antisymmetrie der Teilbarkeit auf $\N$). Es folgt wie gewünscht, dass $x=1$ oder $x=p$ gilt.
+
+$2\Rightarrow 1:$ Wir nehmen an, dass $p$ eine Primzahl sei und müssen für beliebige natürliche Zahlen $n,m$
+\[
+p|(nm)\,\Rightarrow (p|n)\lor(p|m)
+\]
+zeigen. Wir tun dies, indem wir aus $p|(nm)$ und $\neg (p|n)$ folgern, dass $p|m$ gelten muss. Weil $|T(p)|=2$ gilt und da $p$ kein Teiler von $n$ ist, sind $n$ und $p$ teilerfremd. Nach dem Lemma von Bézout gibt es also ganze Zahlen $k,r$ mit
+\[
+ 1=pk+nr.
+\]
+Andererseits folgt aus $p|nm$, dass es eine natürliche Zahl $t$ mit
+\[
+ nm=pt
+\]
+gibt. Insgesamt gilt also
+\begin{align*}
+m&=m\cdot 1=m(pk+nr)\\
+&=mpk+mnr\\
+&=mpk+ptr\\
+&=p(mk+tr).
+\end{align*}
+Somit ist also wie gewünscht, $p$ ein Teiler von $m$.
+
+\subsubsection{Primteiler}
+Jede ganze Zahl $z$ mit $z\notin\{-1,1\}$ besitzt einen \textit{Primfaktor} (einen Teiler, der eine Primzahl ist). Formal können wir dies als
+\[
+\forall z\in\Z\,\big(z\notin\{-1,1\}\Rightarrow T(z)\cap\mathbb{P}\neq\emptyset\big)
+\]
+ausdrücken. \\
+ Sei $z\in\mathbb{Z}$ mit $z\notin\{-1,1\}$. Die Menge $M:=\{n\in\mathbb{N}\mid n>1\wedge n|z\}$ ist nicht leer, da sie mindestens $|z|$ als Element enthält. Nach dem Minimumsprinzip besitzt $M$ also ein kleinstes Element $m=\min(M)$. Wir zeigen durch Widerspruch, dass $m$ eine Primzahl ist. Wenn wir annehmen, dass $m$ keine Primzahl ist, dann gibt es einen Teiler $t\in\mathbb{N}$ von $m$ mit $1<t<m$ (da $|T(m)|\geq 3$). Aus der Transitivität der Teilbarkeitsrelation folgt aus $t|m$ und $m|z$, dass $t|z$ gilt. Insgesamt ist also $t<m$ und $t\in M$, was im Widerspruch zur Minimalität von $m$ in $M$ steht.
+
+\subsubsection{ Es gibt unendlich viele Primzahlen.}
+Wir machen einen Widerspruchsbeweis. Wir nehmen an, dass es nur endlich viele Primzahlen $\mathbb{P}=\{p_1,..,p_n\}$ gibt. Nach Satz \ref{Primteiler} gibt es eine Primzahl $p_i$ so, dass
+ \[
+  p_i\,|\,(\prod_{j=1}^np_j)+1.
+ \]
+Es gibt also eine natürliche Zahl $k$ so, dass
+\[
+ p_i\cdot k=(\prod_{j=1}^np_j)+1
+\]
+gilt. Daraus folgt
+\begin{align*}
+ 1=p_i\cdot k-(\prod_{j=i}^np_j)&=p_i\cdot k-(p_1\cdot..\cdot p_i\cdot..\cdot p_n)\\
+&=p_i\cdot k-p_i(\underbrace{p_1\cdot..\cdot p_{i-1}\cdot p_{i+1}\cdot..\cdot p_n}_{:=p})\\
+&=p_i(k-p).
+\end{align*}
+Es folgt also, dass $p_i$ ein Teiler von $1$ ist, das steht aber im Widerspruch zu $p_i\in\mathbb{P}$.
+
+\subsubsection{ Jede natürliche Zahl grösser als $1$ ist das Produkt von endlich vielen Primzahlen}
+Wir machen einen Beweis durch Widerspruch. Angenommen es gibt natürliche Zahlen, die sich nicht als Produkt von Primzahlen schreiben lassen, dann ist die Menge
+\[
+ M:=\{n\in\mathbb{N}\backslash\{0,1\}\mid n\text{ ist nicht das Produkt von endlich vielen Primzahlen}\}
+\]
+nicht leer. Nach dem Minimumsprinzip gibt es also ein kleinstes Element $m=\min(M)$. Nach Satz Primteiler gibt es eine Primzahl $p$ mit $p|m$. Da $m$ selbst keine Primzahl ist, gibt es also eine natürliche Zahl $k$ mit $1<k<m$ und $pk=m$. Da $k<m$ gilt, muss es, wegen der Minimalität von $m$ in $M$, eine Darstellung von $k$ als Produkt von Primzahlen geben. Es gibt also eine natürliche Zahl $n>0$ und Primzahlen $p_1,..,p_n$ so, dass
+\[
+k=\prod_{i=1}^{n}p_i=p_1\cdot p_2\cdot..\cdot p_n.
+\]
+Daraus folgt aber, dass
+\[
+ m=pk=p\cdot\prod_{i=1}^{n}p_i=p\cdot p_1\cdot p_2\cdot..\cdot p_n
+\]
+ebenfalls das Produkt von endlich vielen Primzahlen ist, ein Widerspruch zu $m\in M$.
+
+\subsubsection{Primfaktorzerlegung}
+Es sei $p_i$ jeweils die $i$-te Primzahl. Für jede natürliche Zahl $n>1$ gibt es eine eindeutig bestimmte, endliche Folge $a_1,..,a_k$ von natürlichen Zahlen mit $a_k\neq 0$, so dass
+\[
+ n=\prod_{i=1}^k p_i^{a_i}
+\]
+gilt.
+
+\subsection{Modulare Arithmetik}
+Es sei $n\in\mathbb{N}$ beliebig. Wir definieren eine Relation $\equiv_n$ auf $\mathbb{Z}$ wie folgt:
+\[
+ r\equiv_n s:\Leftrightarrow n|(r-s).
+\]
+Gilt für $r,s\in Z$ die Relation $r\equiv_ns$, dann sagen wir, dass $r$ gleich $s$ modulo $n$ ist und schreiben $r=s \:mod\, n$.
+\\
+ Die Relation $\equiv_n$ ist für jede natürliche Zahl $n$ eine Äquivalenzrelation auf $\mathbb{Z}$.
+\\
+Es sei $n\in\mathbb{N}$ beliebig. Für je zwei ganze Zahlen $x$ und $y$ gilt $x\modn y$ genau dann, wenn $x$ und $y$ denselben Rest bei Division durch $n$ lassen.
+\\
+ Es sei $n\in\mathbb{N}$ beliebig. Jede ganze Zahl $z$ steht mit genau einer natürlichen Zahl aus $\{0,..n-1\}$ in der Relation $\equiv_n$.
+
+\subsubsection{Äquivalenzklasse}
+
+Es sei $n\in\mathbb{N}$ beliebig. Für jede ganze Zahl $z$ bezeichnen wir mit
+\[
+ [z]_n:=\{x\in\mathbb{Z}\mid x\modn z\}
+\]
+die Äquivalenzklasse von $z$ bezüglich der Relation $\modn$ und nennen diese auch die \textit{Restklasse} von $z$. Abkürzend bezeichnen wir $[z]_n$ auch mit $\bar k$, wenn $k\in\{0,..,n-1\}$ und $z\modn k$ gilt.
+\\
+Es sei $n\in\mathbb{N}$ beliebig. Es gilt
+\[
+ [z]_n=\{z+yn\mid y\in\Z\}=\{....z-3n,z-2n,z-n,z,z+n,z+2n,z+3n,..\}.
+\]
+
+\subsubsection{Restklassen}
+ Es sei $n\in\mathbb{N}$ beliebig. Die Menge aller Restklassen von $\mathbb{Z}$ modulo $n$ bezeichnen wir mit
+\[
+\mathbb{Z}/n=\{[z]_n\mid z\in\mathbb{Z}\}=\{\bar k\mid 0\leq k<n-1\wedge z\modn k\}=\{\bar 0,\bar1,\bar2,..,\overline{n-1}\}.
+\]
+Wir definieren zwei Verknüpfungen $\cdot:(\mathbb{Z}/n)^2\rightarrow \mathbb{Z}/n$ und $+:(\mathbb{Z}/n)^2\rightarrow \mathbb{Z}/n$ durch die Zuordnungen
+\[
+ [x]_n+[y]_n:=[x+y]_n
+\]
+und
+\[
+ [x]_n\cdot[y]_n:=[xy]_n.
+\]
+
+\textbf{Beispiel: Die Verknüpfungstabelle der Addition in $\mathbb{Z}/6$}
+\begin{center}
+\begin{tabular}{|c | c | c | c | c | c | c|}
+\hline
+$+$ & $\bar 0$ & $\bar 1$ & $\bar 2$ &$\bar 3$ &$\bar 4$ &$\bar 5$ \\
+\hline
+$\bar 0$ & $\bar 0$ & $\bar 1$ & $\bar 2$ &$\bar 3$ &$\bar 4$ &$\bar 5$\\
+\hline
+$\bar 1$ & $\bar 1$ & $\bar 2$ &$\bar 3$ &$\bar 4$ &$\bar 5$ & $\bar 0$ \\
+\hline
+$\bar 2$ & $\bar 2$&$\bar 3$ &$\bar 4$ &$\bar 5$ & $\bar 0$ & $\bar 1$\\
+\hline
+$\bar 3$ &$\bar 3$ &$\bar 4$ &$\bar 5$ & $\bar 0$ & $\bar 1$ & $\bar 2$\\
+\hline
+$\bar4$ &$\bar 4$ &$\bar 5$ & $\bar 0$ & $\bar 1$ & $\bar 2$ &$\bar 3$\\
+\hline
+$\bar5$ &$\bar 5$ & $\bar 0$ & $\bar 1$ & $\bar 2$ &$\bar 3$ &$\bar 4$\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Invertierbarkeit}
+Es sei $n\in\mathbb{N}\backslash\{1\}$ beliebig. Folgende Aussagen sind äquivalent:
+\begin{enumerate}
+\item[1.] $n$ ist eine Primzahl.
+\item[2.] Für jedes $\bar k\in\mathbb{Z}/n$ mit $\bar k\neq\bar 0$ gibt es genau ein $r\in\{0,..,n-1\}$ mit $\bar k\cdot\bar r=\bar 1$.
+\end{enumerate}
+Die zweite Aussage besagt, dass man in $\mathbb{Z}/n$ Gleichungen von der Form $ax=b$ stets nach $x$ auflösen kann. Sind $\bar k,\bar r\in\mathbb{Z}/n$ mit $\bar k\cdot\bar r=\bar 1$, so sagen wir $\bar r$ sei invers (bezüglich der Multiplikation) zu $\bar k$ und schreiben auch $(\bar{k})^{-1}$ für $\bar r$.
+\\
+Es sei $n\in\mathbb{N}$ beliebig, dann heisst $\bar k\in\mathbb{Z}/n$ invertierbar, falls es zu $\bar k$ inverse Elemente in $\mathbb{Z}/n$ gibt.
+
+\subsection{Chinesischer Restsatz}
+Der chinesische Restsatz besagt, dass bei paarwiese teilerfremden Zahlen $n_1,..,n_k\in\mathbb{N}_{>1}$ und beliebigen ganze Zahlen $y_1,..,y_k$, Gleichungssysteme von der Form
+\begin{align*}
+ x&\equiv_{n_1} y_1\\
+x&\equiv_{n_2} y_2\\
+&.\\
+&.\\
+&.\\
+x&\equiv_{n_k} y_k
+\end{align*}
+eindeutig in $\mathbb{N}/(n_1,..,n_k)$ lösbar sind.
+\\
+
+Es seien $n_1,..,n_k\in\mathbb{N}_{>1}$ paarweise teilerfremd und weiter $y_1,..,y_k\in\mathbb{Z}$ beliebig. Es gibt genau eine natürliche Zahl $x<\prod_{i=1}^kn_i$ so, dass die Lösungsmenge des Systems
+\begin{align*}
+ x&\equiv_{n_1} y_1\\
+x&\equiv_{n_2} y_2\\
+&.\\
+&.\\
+&.\\
+x&\equiv_{n_k} y_k
+\end{align*}
+der Menge $[x]_{\prod_{i=1}^kn_i}$ entspricht.
+
+\subsubsection{Algorithmus}
+
+Wir wollen ein System simultaner Kongruenzen mit zwei Gleichungen lösen, etwa
+\begin{align*}
+x&\equiv_{n_1} y_1\\
+x&\equiv_{n_2} y_2
+\end{align*}
+mit $n_1$ und $n_2$ teilerfremd. Wir gehen schrittweise wie folgt vor:
+ \begin{enumerate}
+  \item Durch sukzessives Teilen mit Rest (wie im Beweis von Satz \ref{hauptideal}) erhalten wir ganze Zahlen $a,b$ mit $an_1+bn_2=1$.
+\item Wir setzen $x:=y_1bn_2+y_2an_1$.
+ \end{enumerate}
+
+\\
+\\
+
+ Wir lösen das System
+\begin{align*}
+x&\equiv_{7} 3\\
+x&\equiv_{5} 2\\
+x&\equiv_{9} 6
+\end{align*}
+Wir lösen zuerst das Teilsystem
+\begin{align*}
+ x&\equiv_{7} 3\\
+x&\equiv_{5} 2
+\end{align*}
+Wir teilen sukzessive mit Rest und erhalten
+\begin{align}
+ 7&=1\cdot 5+2\\
+5&=2\cdot 2+1
+\end{align}
+und somit
+\begin{align*}
+1&\stackrel{(4.2)}{=}5-2\cdot 2\\
+&\stackrel{(4.1)}{=}5-2(7-5)\\
+&=5-2\cdot7+2\cdot5\\
+&=\textbf{3}\cdot 5+(\textbf{-2})\cdot 7
+\end{align*}
+Wir haben also als Lösung
+\[
+ x=3\cdot 3\cdot 5+2\cdot(-2)\cdot 7=17
+\]
+und als Lösungsmenge $[17]_{35}$. Wir müssen nun noch das System
+\begin{align*}
+x&\equiv_{35} 17\\
+x&\equiv_{9} 6
+\end{align*}
+lösen. Wir teilen sukzessive mit Rest:
+\begin{align*}
+ 35&=3\cdot 9+8\\
+9&=1\cdot 8+1.
+\end{align*}
+Wir erhalten damit:
+\begin{align*}
+ 1&=9-8\\
+&=9-(35-3\cdot 9)\\
+&=\textbf{4}\cdot 9+(\textbf{-1})\cdot 35.
+\end{align*}
+Eine Lösung ergibt sich erneut durch
+\[
+ x:=17\cdot4\cdot9+6\cdot(-1)\cdot35=402.
+\]
+Die Lösungsmenge des ganzen Systems ist also $[402]_{35\cdot9}=[87]_{315}$.
+
+\subsubsection{Kleiner Fermat}
+Ist $p\in\mathbb{P}$ und $a$ kein Vielfaches von $p$, dann gilt
+\[
+a^{p-1}\equiv_p1.
+\]
+Da $a\in\mathbb{Z}$ kein Vielfaches von $p$ ist, sind $a$ und $p$ teilerfremd, $a$ ist somit invertierbar in $\mathbb{Z}/p$ (wir dürfen in $\mathbb{Z}/p$ somit ``durch $a$ teilen''). Wir betrachten die Funktion
+\begin{align*}
+f&:\mathbb{Z}/p\to\mathbb{Z}/p\\
+f&(x)=\bar a\cdot x
+\end{align*}
+Weil $a$ eine Einheit ist, wissen wir, dass die Funktion $f$ surjektiv ist. Es gilt also
+\begin{align*}
+f(\bar 1)\cdot.. \cdot f(\overline{p-1})=\bar 1\cdot..\cdot \overline{p-1}.
+\end{align*}
+und somit
+\begin{align*}
+&\bar a\bar 1\cdot.. \cdot \bar a\overline{p-1}=\bar 1\cdot..\cdot \overline{p-1}\\
+\end{align*}
+also
+\begin{align*}
+\bar a^{p-1}\bar 1\cdot.. \cdot \overline{p-1}=\bar 1\cdot..\cdot \overline{p-1}.
+\end{align*}
+Da alle Zahlen $2,\dots,p-1$ zu $p$ teilerfremd sind, erhalten wir daraus
+\[
+\bar a^{p-1}=\bar 1.
+\]
