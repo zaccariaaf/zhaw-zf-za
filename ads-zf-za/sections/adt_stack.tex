@@ -1,0 +1,30 @@
+\section{ADT, Stack, Queue}
+\subsection{Abstrakter Datentyp (ADT)}
+
+Dient dem sogenannten Information Hiding. Dabei soll nur soviel, wie für die Verwendung einer Klasse nötig ist, für andere Klassen sichtbar sein. Jede Klasse besteht aus einer von aussen sichtbaren Schnittstelle und aus einer ausserhalb der Klasse unsichrbaren Implementation.
+
+\begin{itemize}
+  \item ADT erlauben die Definition einer Schnittstelle über Zugriffsmethoden
+  \item Nur diese Zugriffsmethoden können die Daten des ADT lesen oder verändern
+  \item Die innere Logik der Daten bleibt dadurch erhalten
+  \item Die Implementation eines ADT kann stets unabhängig vom verwendeten Programm verändert werden
+\end{itemize}
+
+In Java verwenden wir ADT durch \texttt{interface} und \texttt{class}.
+
+\begin{lstlisting}[language=Java]
+	interface Stack {
+  void push(Object obj);
+  Object pop();
+}
+
+class MyStack implements Stack {
+  void push(Object obj) {
+    // Implementation
+  }
+}
+
+Stack stack = new MyStack();
+\end{lstlisting}
+
+
