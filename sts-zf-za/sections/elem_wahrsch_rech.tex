@@ -72,4 +72,67 @@ Der Erwartungswert $E(X) = \sum_{x \in \mathbb{R}} P(X=x) \cdot y = \sum_{\omega
 Der Erwartungswert existiert nicht für jede Verteilung.
 \subsubsection{Varianz}
 \label{sec:varianz}
-Die Varianz $V(X) = E(\left[X - E(X)\right]^2) = \sum_{x \in \mathbb{R}} P(X=x) \cdot \left[x - E(X)\right]^2$
+Die Varianz $V(X) = E(\left[X - E(X)\right]^2) = \sum_{x \in \mathbb{R}} P(X=x) \cdot \left[x - E(X)\right]^2
+= \sum_{\omega \in \Omega} P(\left{\omega\right}) \cdot \left[X(\omega) - E(X)\right]^2$ und die Standardabweichung
+$S(X) = \sqrt{V(X)}$ sind Streumassen der Verteilung von $X$. Varianz und Standardabweichung existieren nicht für jede Verteilung.
+\subsection{Wichtige Eigenschaften der Kenngrössen}
+\label{sec:wichtige-eigenschaften-der-kenngrssen}
+\begin{itemize}
+    \item Linearität: $E(X + Y) = E(X) + E(Y)$ und $E(\alpha X) = \alpha E(X)$, mit $\alpha X \in \mathbb{R}$
+    \item Verschiebungssatz und die Varianz: $V(X) = E(X^2) - E(X)^2 = \left[\sum_{x \in \mathbb{R}} P(X=x) \cdot x^2\right] - E(X)^2$
+    \item $V(\alpha X + \beta) = \alpha^2 V(X)$ mit $\alpha, \beta \in \mathbb{R}$
+\end{itemize}
+Im Allgemeinen gilt für die Verteilung einer Zufallsvariablen $X$ nach der Tschebyscheffschen Ungleichung, dass immer
+mindestens 75\% der Werte im Bereich $E(X) \pm 2 \cdot S(X)$ liegen. \\
+Viele Zufallsvariablen sind annähernd nach einer Gauss'schen Normalverteilung verteilt. Bei einer normalverteilten
+Zufallsvariable liegen etwa 68\% der Werte im Bereich $E(X) \pm S(X)$ und bereits etwa 95\% im Bereich $E(X) \pm 2 \cdot S(X)$.
+\subsection{Bedingte Wahrscheinlichkeiten}
+\label{sec:bedingte-wahrscheinlichkeiten}
+Seien $(\Omega, P)$ ein diskreter Wahrscheinlichkeitsraum und $A$ und $B$ zwei Ereignisse.
+Die \textbf{bedingte Wahrscheinlichkeit} $P(A|B)$ ist die Wahrscheinlichkeit, dass Ereignis $A$ eintritt, unter der Annahme
+dass Ereignis $B$ eingetreten ist. Falls $P(B) > 0$ ist, so gilt:
+\begin{equation*}
+    P(A|B) = \frac{P(A \cap B)}{P(B)}
+\end{equation*}
+\subsubsection{Wichtige Eigenschaften der bedingten Wahrscheinlichkeiten}
+\label{sec:wichtige-eigenschaften-der-bedingten-wahrscheinlichkeiten}
+\begin{itemize}
+    \item Multiplikationssatz - Pfadwahrscheinlichkeit: $P(A \cap B) = P(A|B) \cdot P(B) = P(B|A) \cdot P(A)$
+    \item Satz von der Totalen Wahrscheinlichkeit: $P(A) = P(A|B) \cdot P(B) + P(A|\overline{B}) \cdot P(\overline{B})$
+        mit dem Komplement $\overline{B} = \Omega \setminus B$ von $B \subseteq \Omega$
+    \item Satz von Bayes: $P(B|A) = \frac{P(B|A) \cdot P(A)}{P(B)}$
+\end{itemize}
+\begin{center}
+    \includegraphics[width=1\textwidth]{images/Wahrscheinlichkeitsbaum.png}
+\end{center}
+\subsection{Stochastische Unabhängigkeit}
+\label{sec:stochastische-unabhngigkeit}
+Seien $(\Omega, P)$ ein diskreter Wahrscheinlichkeitsraum und $A$ und $B$ zwei Ereignisse.
+Die Ereignisse $A$ und $B$ sind \textbf{stochastisch unabhängig}, falls gilt:
+\begin{equation*}
+    P(A \cap B) = P(A) \cdot P(B)
+\end{equation*}
+Andernfalls sind die Ereignisse \textbf{stochastisch abhängig}. \\
+Zwei Zufallsvariablen $X: \Omega \rightarrow \mathbb{R}$ und $Y: \Omega \rightarrow \mathbb{R}$ 
+heissen \textbf{stochastisch unabhängig}, falls gilt:
+\begin{equation*}
+    P(X=x, Y=y) = P(X=x) = P(X=x) \cdot P(Y=y) \quad \forall x, y \in \mathbb{R}
+\end{equation*}
+Andernfalls heissen die Zufallsvariablen \textbf{stochastisch abhängig}. \\
+Die Funktion $f(x, y) = P(X=x, Y=y)$ heisst \textbf{gemeinsame Verteilung} (Verbundverteilung) von $X$ und $Y$.
+\subsubsection{Satz von der stochastischen Unabhängigkeit}
+\label{sec:satz-von-der-stochastischen-unabhngigkeit}
+Sei $(\Omega, P)$ ein diskreter Wahrscheinlichkeitsraum. Folgende Eigenschaften sind äquivalent:
+\begin{enumerate}
+    \item $A$ und $B$ sind stochastisch unabhängig
+    \item $A$ und $\Omega \setminus B$ sind stochastisch abhängig
+    \item $B$ und $\Omega \setminus A$ sind stochastisch abhängig
+    \item $\Omega \setminus A$ und $\Omega \setminus B$ sind stochastisch unabhängig
+\end{enumerate}
+Wenn $A$ und $B$ stochastisch unabhängig sind, beeinflusst das Eintreten des einen Ereignisses das Eintreten
+des anderen Ereignisses nicht. \\
+Denn falls $P(B) \neq 0$, so gilt $P(A|B) = P(A)$ und falls $P(A) \neq 0$, so gilt $P(B|A) = P(B)$. \\
+Für stochastisch unabhängige Zufallsvariablen $X$ und $Y$ gilt:
+\begin{equation*}
+    E(X \cdot Y) = E(X) \cdot E(Y) \quad \text{und} \quad V(X + Y) = V(X) + V(Y)
+\end{equation*}
