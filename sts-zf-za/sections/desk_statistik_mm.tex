@@ -1,0 +1,33 @@
+\section{Deskriptive Statistik (mehrere Merkmale)}
+\subsection{Kovarianz und Korrelation}
+Generell wird eine bivarate (2-merkmalige) Stichprobe $(x_1,y_1),\dots,(x_n,y_n)$ vorausgesetzt. \\
+Arithmetisches Mittel der $x$ und $y$-Merkmale:
+\begin{align*}
+  \bar{x} = \frac{1}{n} \sum^{n}_{i=1} x_i \\
+  \bar{y} = \frac{1}{n} \sum^{n}_{i=1} y_i
+\end{align*}
+Arithmetische Mittel der quadrierten $x$ und $y$-Merkmale: 
+\begin{align*}
+  \bar{x^2} = \frac{1}{n} \sum^{n}_{i=1} x_i^2 \\
+  \bar{y^2} = \frac{1}{n} \sum^{n}_{i=1} y_i^2
+\end{align*}
+Arithmetische Mittel des Produktes der $x$ und $y$-Merkmale:
+\begin{align*}
+  \bar{\bar{xy}} = \frac{1}{n} \sum^{n}_{i=1} x_i y_i \\
+\end{align*}
+Varianz und Standardabweichung:
+\begin{align*}
+  \tilde{s}^2_x = \bar{x^2} - \bar{x}^2 \\
+  \tilde{s}_x = \sqrt{\tilde{s}^2_x}
+\end{align*}
+\subsection{Empirische Kovarianz}%
+\label{sub:Empirische Kovarianz}
+\begin{align*}
+  \tilde{s}_{xy} = \frac{1}{n} \sum^{n}_{i=1} (x_i - \bar{x}) \cdot (y_i - \bar{y})
+\end{align*}
+\subsection{Empirischer Korrelationskoeffizient nach Pearson}%
+\label{sub:Empirischer Korrelationskoeffizient nach Pearson}
+\begin{align*}
+  r_{xy} = \frac{\tilde{s}_{xy}}{\tilde{s}_x \cdot \tilde{s}_y} 
+\end{align*}
+für $\tilde{s}_x \neq 0
