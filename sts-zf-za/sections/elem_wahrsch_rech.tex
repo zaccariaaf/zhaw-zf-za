@@ -68,12 +68,12 @@ Wir betrachten Lagemasse und Streumasse. Lagemasse beschreiben das Zentrum der V
 Seien $(\Omega, P)$ ein diskreter Wahrscheinlichkeitsraum und $X: \Omega \rightarrow \mathbb{R}$ eine Zufallsvariable.
 \subsubsection{Erwartungswert}
 \label{sec:erwartungswert}
-Der Erwartungswert $E(X) = \sum_{x \in \mathbb{R}} P(X=x) \cdot y = \sum_{\omega \in \Omega} P(\left{\omega\right}) \cdot X(\omega)$ ist ein Lagemass der Verteilung von $X$.
+Der Erwartungswert $E(X) = \textstyle \sum_{x \in \mathbb{R}} P(X=x) \cdot y = \sum_{\omega \in \Omega} P(\left\{\omega\right\}) \cdot X(\omega)$ ist ein Lagemass der Verteilung von $X$.
 Der Erwartungswert existiert nicht für jede Verteilung.
 \subsubsection{Varianz}
 \label{sec:varianz}
 Die Varianz $V(X) = E(\left[X - E(X)\right]^2) = \sum_{x \in \mathbb{R}} P(X=x) \cdot \left[x - E(X)\right]^2
-= \sum_{\omega \in \Omega} P(\left{\omega\right}) \cdot \left[X(\omega) - E(X)\right]^2$ und die Standardabweichung
+= \sum_{\omega \in \Omega} P(\left\{\omega\right\}) \cdot \left[X(\omega) - E(X)\right]^2$ und die Standardabweichung
 $S(X) = \sqrt{V(X)}$ sind Streumassen der Verteilung von $X$. Varianz und Standardabweichung existieren nicht für jede Verteilung.
 \subsection{Wichtige Eigenschaften der Kenngrössen}
 \label{sec:wichtige-eigenschaften-der-kenngrssen}
@@ -103,7 +103,7 @@ dass Ereignis $B$ eingetreten ist. Falls $P(B) > 0$ ist, so gilt:
     \item Satz von Bayes: $P(B|A) = \frac{P(B|A) \cdot P(A)}{P(B)}$
 \end{itemize}
 \begin{center}
-    \includegraphics[width=1\textwidth]{images/Wahrscheinlichkeitsbaum.png}
+    \includegraphics[width=1\linewidth]{images/Wahrscheinlichkeitsbaum.png}
 \end{center}
 \subsection{Stochastische Unabhängigkeit}
 \label{sec:stochastische-unabhngigkeit}
