@@ -1,2 +1,2 @@
-# ged-zf-za
-Zusammenfassung für ZHAW Grundlagen Elektrotechnik
+# zhaw-zf-za
+Zusammenfassung für ZHAW
