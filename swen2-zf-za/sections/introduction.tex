@@ -1,0 +1,823 @@
+\section{Einführung}
+\label{sec:einfuehrung}
+
+\subsection{SWEBOK}
+\label{subsec:swebok}
+
+\href{http://www.computer.org/web/swebok}{SWEBOK} ist die Abkürzung für Software Engineering Body of Knowledge. Es handelt sich dabei um eine Sammlung von Wissen, das für die Ausübung des Software Engineerings notwendig ist. Inhalt:
+\begin{itemize}
+    \item Software Requirements
+    \item Software Design
+    \item Software Construction
+    \item Software Testing
+    \item Software Maintenance
+    \item Software Configuration Management
+    \item Software Engineering Management
+    \item Software Engineering Process
+    \item Software Engineering Tools and Methods
+    \item Software Quality
+    \item Related Disciplines of Software Engineering
+\end{itemize}
+
+\subsection{Wasserfall, V-Model, Rational Unified Process}
+\label{subsec:wasserfall-v-modell}
+
+\subsubsection{Wasserfallmodell}
+\label{subsubsec:wasserfallmodell}
+\textbf{Vorteile:}
+\begin{itemize}
+    \item Einfach zu verstehen
+    \item Strukturiert
+    \item Klare Phasen
+    \item Vorteilhaft bei Projekten mit klaren Anforderungen
+    \item Erlaubt eine genauere Kosten- und Zeitplanung
+\end{itemize}
+\textbf{Nachteile:}
+\begin{itemize}
+    \item Keine Anpassung an sich ändernde Anforderungen
+    \item Lange Entwicklungszeiten
+    \item Hohe Kosten bei späteren Änderungen
+\end{itemize}
+
+\subsubsection{Rational Unified Process}
+\label{subsubsec:rational-unified-process}
+\textbf{Vorteile:}
+\begin{itemize}
+    \item Iterativ und inkrementell
+    \item Architekturzentriert
+    \item Risiko- und qualitätsorientiert
+\end{itemize}
+\textbf{Nachteile:}
+\begin{itemize}
+    \item Schwerfällig bezüglich Prozess und Dokumentation
+    \item Hoher Aufwand
+    \item Transition-Phase fehlt
+\end{itemize}
+
+\textbf{Wann sinnvoll?}
+\begin{itemize}
+    \item Bei Projekten die gross und komplex sind
+    \item Bei Projekten in regulierten Branchen
+    \item Bei Projekten die auf wiederholbaren Prozessen basieren
+    \item Bei Projekten mit fixen Anforderungen (Kosten, Zeit, Funktionalität)
+\end{itemize}
+
+\subsubsection{Probleme von Software}
+\begin{itemize}
+    \item Die Rate an fehlgeschlagenen Projekten ist hoch
+    \item Die meisten der implementierten Features werden nie benutzt (64\%)
+\end{itemize}
+
+\subsection{Gesetze der Softwareentwicklung}
+\subsubsection{Humphy's Law}
+Menschen wissen nicht, was sie wollen, bis sie es sehen.
+Bedeutet dass Anforderungen sich ändern, sobald sie implementiert sind.
+\subsubsection{Ziv's Law}
+Softwareentwicklung ist unvorhersehbar und kann nie vollends verstanden werden.
+\subsubsection{Conway's Law}
+Software ist ein Spiegel der Firma und der Menschen, die sie entwickeln.
+\subsubsection{Brooks' Law}
+Adding manpower to a late software project makes it later.
+\subsubsection{Zawinski's Law}
+Every program attempts to expand until it can read mail. Those programs which cannot so expand are replaced by ones which can.
+\subsubsection{Parkinson's Law}
+Work expands so as to fill the time available for its completion.
+\subsubsection{Pareto's Fallacy}
+When you're 80\% done, you think you  only have 20\% left.
+\subsubsection{Sturgeon's Revelation}
+90\% of everything is crud.
+\subsubsection{The Peter Principle}
+In a hierarchy, every employee tends to rise to his level of incompetence. Thus, in time, every post tends to be occupied by an employee who is incompetent to carry out its duties.
+\subsubsection{Eagelson's Law}
+Any code of your own that you haven't looked at for six or more months might as well have been written by someone else.
+\subsubsection{Greenspun's Tenth Rule}
+Any custom developed system contains an ad-hoc, informally-specified, bug-ridden, slow implementation of half of the industry standard you refused to adopt.
+\subsubsection{The Iceberg Fallacy}
+The cost of development of a new system is only a small part of the total cost of ownership.
+
+\subsection{Agile Manifesto}
+\subsubsection{Agile Werte}
+\begin{itemize}
+    \item Individuals and interactions over processes and tools
+    \item Working software over comprehensive documentation
+    \item Customer collaboration over contract negotiation
+    \item Responding to change over following a plan
+\end{itemize}
+
+\subsubsection{12 Prinzipein des Agilen Manifests}
+\begin{itemize}
+    \item Customer satisfaction through early and continuous software delivery
+    \item Accommodate changing requirements throughout the development process
+    \item Deliver working software frequently (weeks rather than months)
+    \item Collaboration between the business stakeholders and developers throughout the project
+    \item Support, trust, and motivate the people involved
+    \item Enable face-to-face interactions
+    \item Working software is the primary measure of progress
+    \item Sustainable development, able to maintain a constant pace
+    \item Continuous attention to technical excellence and good design
+    \item Simplicity—the art of maximizing the amount of work not done—is essential
+    \item Self-organizing teams
+    \item Regular reflections on how to become more effective
+\end{itemize}
+
+\subsubsection{Bedeutung des agilen Manifests für die Softwareentwicklung}
+Agile Methoden sind eine Reaktion auf die Probleme der klassischen Softwareentwicklung. Sie sind darauf ausgelegt, flexibel auf sich ändernde Anforderungen zu reagieren und die Zusammenarbeit zwischen den Stakeholdern zu verbessern. Agile Methoden sind besonders geeignet für Projekte, bei denen die Anforderungen nicht vollständig bekannt sind oder sich während der Entwicklung ändern können.
+
+\subsection{Agile}
+\subsubsection{Begriffe}
+\begin{itemize}
+    \item Risk: Risiken sind Ereignisse, die den Erfolg eines Projekts gefährden können.
+    \item Cost of change: Die Kosten, die entstehen, wenn Anforderungen geändert werden.
+    \item Iron Triangle: Scope, Resources, Schedule; in der Mitte ist Quality.
+    \begin{itemize}
+        \item Zusätzlichen Scope führt zu mehr Zeit
+        \item Zusätzliche Qualität führt zu mehr Zeit
+        \item Zusätzliche Ressourcen führen manchmal zu weniger Zeit, aber sehr selten
+    \end{itemize}
+    \item Scope ist die einzige Variable
+\end{itemize}
+
+\subsection{Extreme Programming}
+\subsubsection{Begriffe}
+\begin{itemize}
+    \item Core Values: Communication, Simplicity, Feedback, Courage, Respect
+    \item Principles: Rapid Feedback, Assume Simplicity, Incremental Change, Embracing Change, Quality Work
+    \item Practices: Planning Game, Small Releases, Metaphor, Simple Design, Testing, Refactoring, Pair Programming, Collective Code Ownership, Continuous Integration, 40-hour Week, On-site Customer, Coding Standards, Sustainable Pace
+    \item Cost of Change Curve: Die Kosten für Änderungen steigen exponentiell mit der Zeit, bei XP sind die Kosten konstant
+    \item Business Value: Der Mehrwert, den ein Feature für den Kunden bringt
+\end{itemize}
+
+\subsection{Software Craft}
+\subsubsection{Gründe für das Software Craft Manifest}
+\begin{itemize}
+    \item Mangel an Qualität und Professionalität in der Softwareentwicklung
+    \item Technische Schulden
+    \item Fehlender Fokus auf kontinuierliche Verbesserung
+    \item Fehlende Zusammenarbeit zwischen Entwicklern und anderen Stakeholdern
+\end{itemize}
+
+\subsubsection{Formate der Software Craft Community}
+\begin{itemize}
+    \item Coding Dojos: Treffen, bei denen Entwickler zusammenarbeiten, um ihre Fähigkeiten zu verbessern
+    \item Code Katas: Übungen, bei denen Entwickler eine bestimmte Aufgabe lösen
+    \item Pair Programming: Zwei Entwickler arbeiten zusammen an einem Computer und wechseln sich ab
+    \item Mob Programming: Ein Team arbeitet zusammen an einem Computer
+    \item Workshops und Meetups: Veranstaltungen, bei denen Entwickler zusammenkommen, um über Software Craft zu diskutieren
+    \item Code Retreats: Intensive Workshops, die sich auf das Üben und Verbessern von Softwareentwicklungsfähigkeiten konzentrieren
+\end{itemize}
+
+\subsubsection{Prinzipien des Software Craft Manifests}
+\begin{itemize}
+    \item Professionelles Verhalten
+    \item Kontinuierliche Verbesserung
+    \item Zusammenarbeit und Austausch
+    \item Qualität im Vordergrund
+    \item Reflexion und Verbesserung
+\end{itemize}
+
+\subsubsection{Coding Dojo und Code Kata}
+Ein Coding Dojo ist ein kollaboratives Lernformat, bei dem Entwickler in einer lockeren Umgebung Programmieraufgaben lösen. Die Struktur eines Coding Dojos umfasst:
+\begin{itemize}
+    \item Kata Auswahl
+    \item Timeboxing
+    \item Rotationen
+    \item Reflexion
+\end{itemize}
+
+Eine Code Kata ist eine Übung, bei der Entwickler eine bestimmte Programmieraufgabe lösen. Code Katas sind eine Möglichkeit, Programmierfähigkeiten zu üben und zu verbessern.
+
+\subsection{Pyramid of Agile Competences}
+
+Die Pyramid of Agile Competences ist ein Modell, das die verschiedenen Kompetenzen beschreibt, die für die agile Softwareentwicklung erforderlich sind. Die Pyramide besteht aus drei Ebenen:
+\begin{itemize}
+    \item Engineering Practices: Technische Fähigkeiten, die für die Softwareentwicklung erforderlich sind, wie z.B. Test-Driven Development, Refactoring und Continuous Integration.
+    \item Management Practices: Managementfähigkeiten, die für die agile Softwareentwicklung erforderlich sind, wie z.B. Scrum, Kanban und Lean.
+    \item Agile Values: Die Werte und Prinzipien des agilen Manifests, wie z.B. individuelle Interaktionen über Prozesse und Tools, funktionierende Software über umfassende Dokumentation und kontinuierliche Verbesserung.
+\end{itemize}
+
+\section{User Stories}
+
+\subsection{Ziele und Anwendung einer User Story}
+
+\subsubsection{Ziele}
+
+\begin{itemize}
+    \item \textbf{Kundenorientierung}: User Stories stellen sicher, dass die Entwicklung auf die Bedürfnisse und Anforderungen der Endbenutzer ausgerichtet ist.
+    \item \textbf{Kommunikation und Verständnis}: Sie fördern den Dialog zwischen Entwicklern, Kunden und anderen Stakeholdern, um ein gemeinsames Verständnis zu schaffen.
+    \item \textbf{Fokus auf Mehrwert}: User Stories helfen dabei, den Mehrwert für den Benutzer zu identifizieren und zu priorisieren.
+    \item \textbf{Iterative Entwicklung}: Sie unterstützen die iterative und inkrementelle Entwicklung, indem sie kleine, umsetzbare Einheiten liefern.
+    \item \textbf{Flexibilität}: User Stories sind flexibel und können leicht angepasst werden, wenn sich Anforderungen ändern.
+\end{itemize}
+
+\subsubsection{Anwendung}
+
+\begin{itemize}
+    \item \textbf{Anforderungsdefinition}: User Stories werden genutzt, um die Anforderungen aus Sicht des Endbenutzers zu beschreiben.
+    \item \textbf{Planung und Priorisierung}: Sie dienen zur Planung und Priorisierung im Product Backlog.
+    \item \textbf{Implementierung}: Entwickler verwenden User Stories, um spezifische Funktionen oder Features zu implementieren.
+    \item \textbf{Akzeptanztests}: Akzeptanzkriterien in User Stories helfen bei der Definition der Tests, die sicherstellen, dass die Anforderungen erfüllt sind.
+\end{itemize}
+
+\subsection{Aufbau einer User Story}
+
+Eine User Story ist typischerweise in einem einfachen Format geschrieben, das leicht verständlich ist. Ein gängiges Format lautet:
+
+\begin{quote}
+\textbf{Als} [Rolle] \textbf{möchte ich} [Funktion], \textbf{damit} [Nutzen].
+\end{quote}
+
+\textbf{Beispiel:}
+
+\begin{quote}
+\textbf{Als} Benutzer \textbf{möchte ich} mich mit meiner E-Mail-Adresse und einem Passwort anmelden, \textbf{damit} ich auf meine persönlichen Daten zugreifen kann.
+\end{quote}
+
+\subsubsection{Komponenten einer User Story}
+
+\begin{itemize}
+    \item \textbf{Titel}: Kurze und prägnante Beschreibung.
+    \item \textbf{Beschreibung}: Detaillierte Beschreibung im oben genannten Format.
+    \item \textbf{Akzeptanzkriterien}: Bedingungen, die erfüllt sein müssen, damit die User Story als erledigt betrachtet wird.
+    \item \textbf{Priorität}: Die Wichtigkeit der User Story im Kontext des gesamten Projekts.
+    \item \textbf{Schätzung}: Der geschätzte Aufwand, um die User Story umzusetzen.
+\end{itemize}
+
+\subsection{Zusammenhang zwischen Epics, Themes und Stories}
+
+\begin{itemize}
+    \item \textbf{Themes}: Ein übergeordnetes Thema oder eine Kategorie, die mehrere Epics und User Stories umfasst. Sie helfen, das Product Backlog in größere Bereiche zu unterteilen.
+    \item \textbf{Epics}: Große User Stories, die zu umfangreich sind, um in einem einzigen Sprint umgesetzt zu werden. Sie werden in mehrere kleinere User Stories aufgeteilt.
+    \item \textbf{User Stories}: Kleine, spezifische Anforderungen, die aus Sicht des Endbenutzers formuliert sind und in einem einzigen Sprint umgesetzt werden können.
+\end{itemize}
+
+\subsection{Merkmale einer guten User Story}
+
+Eine gute User Story sollte die \textbf{INVEST}-Kriterien erfüllen:
+
+\begin{itemize}
+    \item \textbf{Independent (Unabhängig)}: Sie sollte unabhängig von anderen User Stories sein, um Flexibilität und Priorisierung zu ermöglichen.
+    \item \textbf{Negotiable (Verhandelbar)}: Sie sollte nicht zu detailliert sein und Raum für Diskussionen und Anpassungen bieten.
+    \item \textbf{Valuable (Wertvoll)}: Sie sollte einen erkennbaren Nutzen für den Endbenutzer liefern.
+    \item \textbf{Estimable (Schätzbar)}: Der Aufwand zur Umsetzung sollte abschätzbar sein.
+    \item \textbf{Small (Klein)}: Sie sollte klein genug sein, um in einem Sprint abgeschlossen zu werden.
+    \item \textbf{Testable (Testbar)}: Sie sollte klare Akzeptanzkriterien haben, die getestet werden können, um festzustellen, ob die Anforderungen erfüllt sind.
+\end{itemize}
+
+\section{Estimation and Planning}
+
+\subsection{Grundbegriffe}
+
+\subsubsection{User Stories}
+User Stories sind kurze, einfache Beschreibungen einer Funktion aus der Perspektive des Endbenutzers. Sie folgen dem Format: \textit{Als [Rolle] möchte ich [Funktion], damit [Nutzen]}.
+
+\subsubsection{User Roles}
+User Roles definieren verschiedene Arten von Benutzern, die unterschiedliche Anforderungen und Bedürfnisse haben. Beispiele sind \textit{Administrator}, \textit{Endbenutzer} oder \textit{Gast}.
+
+\subsubsection{Epics}
+Epics sind große User Stories, die zu umfangreich sind, um in einem einzigen Sprint umgesetzt zu werden. Sie werden in kleinere, detailliertere User Stories aufgeteilt.
+
+\subsubsection{Themes}
+Themes sind übergeordnete Kategorien, die mehrere Epics und User Stories umfassen. Sie helfen dabei, das Product Backlog in größere Bereiche zu unterteilen.
+
+\subsubsection{Story Points}
+Story Points sind eine Maßeinheit zur Schätzung des Aufwands, der zur Umsetzung einer User Story benötigt wird. Sie basieren auf relativen Bewertungen der Komplexität, des Risikos und des Umfangs.
+
+\subsubsection{Velocity}
+Velocity ist die Geschwindigkeit, mit der ein Team User Stories in einem Sprint abschließt. Sie wird in Story Points gemessen und hilft bei der Planung zukünftiger Sprints.
+
+\subsubsection{Planning Poker}
+Planning Poker ist eine Methode zur Schätzung von User Stories, bei der Teammitglieder Karten mit Schätzungen verdeckt legen und gleichzeitig aufdecken. Unterschiede werden diskutiert, um eine Einigung zu erzielen.
+
+\subsubsection{Conditions of Satisfaction}
+Conditions of Satisfaction sind klare, messbare Kriterien, die erfüllt sein müssen, damit eine User Story als abgeschlossen betrachtet wird. Sie dienen als Akzeptanzkriterien.
+
+\subsubsection{Levels of Planning}
+Levels of Planning umfassen verschiedene Planungsebenen im agilen Kontext, von der strategischen Planung auf Unternehmensebene bis zur täglichen Planung auf Teamebene.
+
+\subsubsection{Product Backlog}
+Das Product Backlog ist eine priorisierte Liste von Anforderungen und Funktionen, die in Form von User Stories, Epics und Themes dargestellt werden. Es wird kontinuierlich aktualisiert und priorisiert.
+
+\subsubsection{Priorisierung (der User Stories)}
+Priorisierung bedeutet, die Reihenfolge der User Stories im Product Backlog festzulegen, basierend auf ihrem Wert für den Kunden, den Kosten, dem Risiko und anderen Faktoren.
+
+\subsubsection{Techniques for Estimating}
+Techniques for Estimating umfassen Methoden wie Planning Poker, T-Shirt-Größen, und Dot-Voting, um den Aufwand und die Komplexität von User Stories zu schätzen.
+
+\subsubsection{Relative Schätzung}
+Relative Schätzung vergleicht den Aufwand für verschiedene User Stories relativ zueinander, anstatt absolute Zahlen zu verwenden. Dies erleichtert die Bewertung der Komplexität.
+
+\subsection{Weitere Begriffe}
+
+\subsubsection{Planning for Value}
+Planning for Value konzentriert sich darauf, den größtmöglichen Nutzen für den Kunden zu liefern, indem Funktionen priorisiert werden, die den höchsten Mehrwert bieten.
+
+\subsubsection{Cost}
+Cost bezieht sich auf die Ressourcen, einschließlich Zeit und Geld, die benötigt werden, um eine User Story oder ein Projekt umzusetzen.
+
+\subsubsection{Financial Value}
+Financial Value misst den finanziellen Nutzen, den eine Funktion oder ein Projekt für das Unternehmen generiert, z.B. durch Umsatzsteigerung oder Kostensenkung.
+
+\subsubsection{Risk}
+Risk umfasst die Unsicherheiten und potenziellen Probleme, die die Umsetzung einer User Story oder eines Projekts beeinflussen können. Risiken müssen identifiziert und gemanagt werden.
+
+\subsubsection{New Knowledge}
+New Knowledge bezieht sich auf das neue Wissen und die Erkenntnisse, die während der Umsetzung eines Projekts gewonnen werden und zur Verbesserung zukünftiger Projekte beitragen.
+
+\subsubsection{Kano-Model of Customer Satisfaction}
+Das Kano-Model of Customer Satisfaction kategorisiert Kundenanforderungen in Basis-, Leistungs- und Begeisterungsmerkmale, um die Kundenzufriedenheit zu maximieren.
+
+\subsection{Planungsebenen im agilen Kontext}
+
+\subsubsection{Strategische Planung}
+Strategische Planung auf Unternehmensebene setzt langfristige Ziele und Visionen. Zuständig sind die Geschäftsführung und das obere Management.
+
+\subsubsection{Taktische Planung}
+Taktische Planung auf Programmebene definiert mittelfristige Ziele und koordiniert mehrere Teams. Verantwortlich sind Programm-Manager und Product Owner.
+
+\subsubsection{Operative Planung}
+Operative Planung auf Teamebene umfasst die Planung einzelner Sprints und die tägliche Arbeit. Zuständig sind die Scrum Master und die Entwicklungsteams.
+
+\section{Build Automation, CI/CD, DevOps}
+
+\subsection{Arten der Software Automation}
+
+\subsubsection{On-Demand Automation}
+On-Demand Automation wird manuell vom Entwickler oder einem anderen Benutzer ausgelöst. Beispiele sind das manuelle Starten eines Build-Prozesses oder das Ausführen eines spezifischen Tests.
+
+\subsubsection{Scheduled Automation}
+Scheduled Automation wird zu festgelegten Zeiten oder Intervallen automatisch ausgeführt. Dies kann tägliche Builds, nächtliche Tests oder wöchentliche Berichte umfassen.
+
+\subsubsection{Triggered Automation}
+Triggered Automation wird durch ein Ereignis ausgelöst, wie z.B. das Einchecken von Code in ein Versionskontrollsystem oder das Erreichen eines bestimmten Meilensteins im Projekt.
+
+\subsection{Arten der Automation und deren Ziele}
+
+\subsubsection{Build Automation}
+Build Automation automatisiert den Prozess des Kompilierens und Linkens von Quellcode zu ausführbaren Programmen. Ziel ist es, Konsistenz und Effizienz zu gewährleisten.
+
+\subsubsection{Test Automation}
+Test Automation umfasst die automatisierte Ausführung von Tests, um sicherzustellen, dass der Code korrekt funktioniert. Ziel ist es, die Testabdeckung zu erhöhen und die Qualität zu verbessern.
+
+\subsubsection{Deployment Automation}
+Deployment Automation automatisiert das Bereitstellen von Anwendungen in verschiedenen Umgebungen (z.B. Entwicklungs-, Test- und Produktionsumgebung). Ziel ist es, den Bereitstellungsprozess zu beschleunigen und Fehler zu minimieren.
+
+\subsection{Software Automation Pipeline}
+
+Die Software Automation Pipeline umfasst mehrere Schritte, die von der Code-Erstellung bis zur Bereitstellung in der Produktionsumgebung reichen. Jeder Schritt hat spezifische Ziele und Aufgaben.
+
+\subsubsection{Code Commit}
+Der Prozess beginnt mit dem Einchecken von Code in ein Versionskontrollsystem. Dies löst oft automatisch den nächsten Schritt in der Pipeline aus.
+
+\subsubsection{Build}
+In dieser Phase wird der Code kompiliert und zu einem ausführbaren Artefakt zusammengefügt. Build-Tools und Skripte automatisieren diesen Prozess.
+
+\subsubsection{Unit Testing}
+Nach dem Build werden Unit-Tests ausgeführt, um sicherzustellen, dass einzelne Codeeinheiten korrekt funktionieren. Diese Tests sind schnell und decken kleine Codeabschnitte ab.
+
+\subsubsection{Integration Testing}
+Integrationstests prüfen, ob verschiedene Module des Codes zusammenarbeiten. Diese Tests sind umfassender und dauern länger als Unit-Tests.
+
+\subsubsection{Deployment}
+Nach erfolgreichem Testen wird die Anwendung in eine Testumgebung oder direkt in die Produktionsumgebung bereitgestellt. Deployment-Tools und Skripte automatisieren diesen Schritt.
+
+\subsubsection{Monitoring}
+Nach dem Deployment wird die Anwendung überwacht, um sicherzustellen, dass sie korrekt funktioniert und um eventuelle Probleme frühzeitig zu erkennen.
+
+\subsection{Continuous Integration (CI)}
+
+Continuous Integration ist eine Praxis, bei der Entwickler ihren Code häufig (mehrmals täglich) in ein gemeinsames Repository integrieren. Jeder Commit löst automatische Builds und Tests aus. Ziel ist es, Integrationsprobleme frühzeitig zu erkennen und zu beheben.
+
+\subsection{Continuous Delivery (CD)}
+
+Continuous Delivery erweitert CI, indem sichergestellt wird, dass der Code jederzeit in die Produktionsumgebung bereitgestellt werden kann. Dies erfordert automatisierte Tests und Deployment-Prozesse. Ziel ist es, die Bereitstellung von Software schnell und zuverlässig zu machen.
+
+\subsection{DevOps}
+
+DevOps ist eine Kultur und Praxis, die Entwicklung (Dev) und Betrieb (Ops) integriert, um die Zusammenarbeit zu verbessern und die Softwarebereitstellung zu beschleunigen. Es umfasst Techniken wie CI, CD und Infrastructure as Code (IaC).
+
+\subsubsection{Ziele von DevOps}
+
+\begin{itemize}
+    \item \textbf{Schnellere Bereitstellung}: Verkürzung der Zeit von der Entwicklung bis zur Produktion.
+    \item \textbf{Höhere Qualität}: Verbesserte Softwarequalität durch automatisiertes Testen und Überwachen.
+    \item \textbf{Bessere Zusammenarbeit}: Förderung der Zusammenarbeit zwischen Entwicklungs- und Betriebsteams.
+    \item \textbf{Erhöhte Effizienz}: Automatisierung wiederkehrender Aufgaben zur Reduzierung manueller Arbeit.
+\end{itemize}
+
+\section{Scrum}
+
+\subsection{Charakteristiken von Scrum}
+
+Scrum ist ein agiles Rahmenwerk zur Entwicklung und Lieferung komplexer Produkte. Es basiert auf iterativer und inkrementeller Entwicklung und fördert Transparenz, Inspektion und Anpassung.
+
+\subsubsection{Roles (Scrum Team)}
+
+\begin{itemize}
+    \item \textbf{Product Owner}: Verantwortlich für das Product Backlog und maximiert den Wert des Produkts. Er stellt sicher, dass das Team an den wichtigsten Aufgaben arbeitet.
+    \item \textbf{Scrum Master}: Unterstützt das Team dabei, Scrum zu verstehen und umzusetzen. Entfernt Hindernisse und fördert die Selbstorganisation des Teams.
+    \item \textbf{Development Team}: Ein interdisziplinäres Team von Fachleuten, das an der Umsetzung der Product Backlog-Einträge arbeitet. Es organisiert sich selbst und bestimmt, wie die Arbeit am besten erledigt wird.
+\end{itemize}
+
+\subsubsection{Ceremonies (Scrum Events)}
+
+\begin{itemize}
+    \item \textbf{Sprint}: Eine feste Zeitspanne (meist 2-4 Wochen), in der ein inkrementelles Produkt erstellt wird.
+    \item \textbf{Sprint Planning}: Ein Meeting, in dem das Team das Ziel und die Arbeit für den nächsten Sprint plant.
+    \item \textbf{Daily Scrum}: Ein tägliches, kurzes Meeting (max. 15 Minuten), bei dem das Team den Fortschritt bespricht und den Plan für den Tag erstellt.
+    \item \textbf{Sprint Review}: Ein Meeting am Ende des Sprints, in dem das Team das Inkrement präsentiert und Feedback einholt.
+    \item \textbf{Sprint Retrospective}: Ein Meeting, in dem das Team reflektiert, was gut lief und was verbessert werden kann, um kontinuierlich zu lernen und sich zu verbessern.
+\end{itemize}
+
+\subsubsection{Scrum Artifacts}
+
+\begin{itemize}
+    \item \textbf{Product Backlog}: Eine priorisierte Liste von Anforderungen und Funktionen, die das Produkt benötigt.
+    \item \textbf{Sprint Backlog}: Eine Liste von Aufgaben, die im aktuellen Sprint erledigt werden sollen.
+    \item \textbf{Increment}: Das fertige, potenziell auslieferbare Produkt, das am Ende jedes Sprints erstellt wird.
+\end{itemize}
+
+\subsubsection{Scrum Values}
+
+\begin{itemize}
+    \item \textbf{Commitment (Engagement)}: Das Team verpflichtet sich, die Ziele des Sprints zu erreichen.
+    \item \textbf{Courage (Mut)}: Das Team hat den Mut, die richtigen Entscheidungen zu treffen und sich Herausforderungen zu stellen.
+    \item \textbf{Focus (Fokus)}: Das Team konzentriert sich auf die Arbeit im Sprint und die Ziele des Scrum Teams.
+    \item \textbf{Openness (Offenheit)}: Das Team ist offen für Feedback und neue Ideen.
+    \item \textbf{Respect (Respekt)}: Teammitglieder respektieren einander und erkennen die unterschiedlichen Fähigkeiten und Erfahrungen an.
+\end{itemize}
+
+\subsection{Wichtige Begriffe}
+
+\subsubsection{Sprint}
+Ein Sprint ist eine Zeitspanne von maximal einem Monat, in der ein fertiges, nutzbares und potenziell auslieferbares Produktinkrement erstellt wird.
+
+\subsubsection{Sprint Goal}
+Das Sprint Goal ist das Ziel, das während des Sprints erreicht werden soll. Es gibt dem Entwicklungsteam Orientierung und Motivation.
+
+\subsubsection{Retrospective}
+Die Sprint Retrospective ist ein Meeting am Ende eines Sprints, in dem das Team diskutiert, was gut gelaufen ist, was verbessert werden kann und wie zukünftige Sprints effizienter gestaltet werden können.
+
+\subsubsection{Task Board}
+Ein Task Board ist ein visuelles Werkzeug, das den Fortschritt der Aufgaben im Sprint Backlog darstellt. Es enthält typischerweise Spalten wie \textit{To Do}, \textit{In Progress} und \textit{Done}.
+
+\subsubsection{Burndown Chart}
+Ein Burndown Chart ist ein Diagramm, das zeigt, wie viel Arbeit im Sprint noch zu erledigen ist. Es hilft dem Team, den Fortschritt zu überwachen und zu steuern.
+
+\subsubsection{Definition of Done}
+Die Definition of Done (DoD) ist eine Liste von Kriterien, die erfüllt sein müssen, damit eine User Story oder ein Produktinkrement als fertig betrachtet wird.
+
+\subsubsection{Definition of Ready}
+Die Definition of Ready (DoR) ist eine Liste von Kriterien, die eine User Story erfüllen muss, bevor das Entwicklungsteam sie in einen Sprint ziehen kann.
+
+\subsubsection{Daily Scrum}
+Das Daily Scrum ist ein tägliches, 15-minütiges Meeting, bei dem das Team den Fortschritt bespricht und den Plan für die nächsten 24 Stunden erstellt.
+
+\subsubsection{Increment}
+Ein Increment ist das fertige Produkt oder der Produktteil, der am Ende eines Sprints geliefert wird. Es muss in einem nutzbaren Zustand und potenziell auslieferbar sein.
+
+\section{Architektur Patterns}
+
+\subsection{CQRS (Command Query Responsibility Segregation)}
+CQRS ist ein Architekturpattern, das Lese- und Schreiboperationen voneinander trennt. Dadurch können die jeweiligen Anforderungen besser erfüllt und die Leistung optimiert werden. Schreiboperationen (Commands) ändern den Zustand des Systems, während Leseoperationen (Queries) den Zustand des Systems abfragen.
+
+\subsection{Event Sourcing}
+Event Sourcing speichert den Zustand eines Systems als eine Sequenz von Ereignissen (Events) statt als aktuelle Werte. Jede Änderung am Zustand wird als Ereignis gespeichert. Dies ermöglicht die Wiederherstellung des Zustands durch Wiedergabe der Ereignisse und unterstützt historische Analysen und Debugging.
+
+\subsection{Strangler Pattern}
+Das Strangler Pattern ist eine Migrationsstrategie, bei der neue Funktionen als separate Module neben einem bestehenden System implementiert werden. Allmählich wird das alte System stranguliert, bis es vollständig ersetzt ist. Dies ermöglicht eine inkrementelle Modernisierung.
+
+\subsection{Online-Migration}
+Online-Migration ist die Strategie, Daten und Anwendungen im laufenden Betrieb von einem System auf ein anderes zu migrieren, ohne den Service zu unterbrechen. Dies erfordert sorgfältige Planung und Werkzeuge, um Konsistenz und Verfügbarkeit zu gewährleisten.
+
+\subsection{Circuit Breaker}
+Ein Circuit Breaker schützt ein System vor Überlastung und Ausfällen, indem es den Zugang zu einer fehlerhaften Komponente blockiert. Es schaltet den \"Stromkreis\" ab, wenn eine bestimmte Anzahl von Fehlern auftritt, und versucht nach einer Wartezeit automatisch eine Wiederherstellung.
+
+\subsection{Bulkhead (Schottwand)}
+Das Bulkhead-Pattern isoliert verschiedene Teile eines Systems, um den Ausfall eines Teils vom Rest des Systems zu trennen. Dies verhindert, dass ein Fehler in einem Teil des Systems andere Teile beeinträchtigt, ähnlich wie Schotten in einem Schiff, die das Eindringen von Wasser begrenzen.
+
+\subsection{Retry}
+Das Retry-Pattern versucht, fehlgeschlagene Operationen nach einer bestimmten Wartezeit automatisch erneut auszuführen. Dies ist nützlich in Systemen, in denen temporäre Fehler häufig sind und oft durch Wiederholung behoben werden können.
+
+\subsection{Serverless}
+Serverless ist ein Architekturstil, bei dem der Cloud-Anbieter die Serverinfrastruktur verwaltet und der Entwickler sich auf das Schreiben von Funktionen konzentriert, die als Reaktion auf Ereignisse ausgeführt werden. Dies reduziert die Betriebs- und Wartungskosten und skaliert automatisch.
+
+\subsection{Microservices}
+Microservices ist ein Architekturmuster, bei dem eine Anwendung in kleine, unabhängige Dienste aufgeteilt wird, die jeweils eine spezifische Funktionalität bieten. Diese Dienste können unabhängig entwickelt, bereitgestellt und skaliert werden, was Agilität und Resilienz erhöht.
+
+\subsection{Self-contained Systems}
+Self-contained Systems (SCS) sind eine Variante der Microservices, bei der jede Einheit eine vollständige Geschäftsfunktion abdeckt, einschließlich Benutzeroberfläche, Logik und Datenhaltung. SCS fördert die Unabhängigkeit und Modularität, indem jede Einheit in sich abgeschlossen ist.
+
+\subsection{Monolith (Modulith)}
+Ein Monolith ist eine Softwarearchitektur, bei der alle Funktionen und Komponenten einer Anwendung in einer einzigen, einheitlichen Codebasis enthalten sind. Ein Modulith ist ein modularer Monolith, bei dem der Monolith in gut strukturierte, lose gekoppelte Module unterteilt ist, um Wartbarkeit und Erweiterbarkeit zu verbessern.
+
+\section{Software-Architektur}
+
+\subsection{Definition}
+
+\textbf{Software-Architektur} bezeichnet die grundlegende Struktur eines Softwaresystems, bestehend aus seinen Komponenten, deren Beziehungen zueinander und den Prinzipien, die dessen Design und Evolution leiten.
+
+\subsection{Rolle des Software-Architekten}
+
+Ein \textbf{Software-Architekt} ist eine Person, die für das Design und die Struktur eines Softwaresystems verantwortlich ist. Diese Rolle beinhaltet die Definition von Architekturentscheidungen, die Sicherstellung der Übereinstimmung mit den Geschäftsanforderungen und die Unterstützung des Entwicklungsteams bei der Implementierung der Architektur.
+
+\subsection{Unterschied zwischen Enterprise Architecture und Application Architecture}
+
+\subsubsection{Enterprise Architecture}
+
+\textbf{Enterprise Architecture} definiert, wie ein Unternehmen viele Anwendungen nutzt. Sie ist vergleichbar mit der Stadtplanung, bei der es um die Organisation und Integration von IT-Systemen im gesamten Unternehmen geht.
+
+\subsubsection{Application Architecture}
+
+\textbf{Application Architecture} konzentriert sich auf die Struktur einer einzelnen Anwendung. Sie umfasst Komponenten, Schichten, Pakete und Namespaces, um die Organisation des Codes zu beschreiben. Sie ist vergleichbar mit der Architektur eines Gebäudes.
+
+\subsection{Schwierigkeiten des Software Designs}
+
+\begin{itemize}
+    \item \textbf{Complexity}: Die Komplexität großer Systeme ist schwer zu beherrschen.
+    \item \textbf{Conformity}: Software muss oft mit bestehenden Systemen und Standards konform sein.
+    \item \textbf{Changeability}: Software ist ständigem Wandel unterworfen und muss flexibel auf Änderungen reagieren können.
+    \item \textbf{Invisibility}: Software ist immateriell und schwer visuell darstellbar, was das Verständnis und die Kommunikation erschwert.
+\end{itemize}
+
+\subsection{Architectural Drivers}
+
+Architectural Drivers sind die zentralen Einflüsse auf die Architektur eines Systems. Diese können technische, geschäftliche, soziale oder organisatorische Faktoren sein, die die Architekturentscheidungen beeinflussen. Beispiele sind:
+
+\begin{itemize}
+    \item \textbf{Qualitätsanforderungen} wie Leistung, Sicherheit und Skalierbarkeit.
+    \item \textbf{Einschränkungen} wie Budget, Zeitplan und verfügbare Ressourcen.
+\end{itemize}
+
+\subsection{Standard, Style und Pattern}
+
+\subsubsection{Standard}
+
+Ein \textbf{Standard} ist ein festgelegter Satz von Regeln und Richtlinien, die bei der Softwareentwicklung befolgt werden sollen, um Konsistenz und Qualität zu gewährleisten.
+
+\subsubsection{Style}
+
+Ein \textbf{Architekturstil} ist eine abstrakte Beschreibung einer Familie von Architekturen, die nach einem gemeinsamen Muster organisiert sind, z. B. Schichtenarchitektur oder Microservices.
+
+\subsubsection{Pattern}
+
+Ein \textbf{Pattern} ist ein bewährtes Lösungsmuster für ein wiederkehrendes Problem in einem bestimmten Kontext, z. B. Singleton oder Factory Pattern in der Softwareentwicklung.
+
+\subsection{Unterschied zwischen Layer und Tier}
+
+\subsubsection{Layer}
+
+Ein \textbf{Layer} ist eine logische Trennung innerhalb der Software, um Funktionalitäten zu organisieren und zu modularisieren. Ein Layer kann in derselben oder in verschiedenen physischen Maschinen existieren.
+
+\subsubsection{Tier}
+
+Ein \textbf{Tier} ist eine physische Trennung in einem verteilten System, wobei jede Tier auf einer eigenen Maschine oder einem eigenen Server ausgeführt wird, z. B. Präsentations-Tier, Logik-Tier, Datenbank-Tier.
+
+\subsection{Architekturstile: Vor- und Nachteile}
+
+\subsubsection{Independent Components}
+
+\begin{itemize}
+    \item \textbf{Vorteile}: Hohe Modularität und Austauschbarkeit.
+    \item \textbf{Nachteile}: Komplexität der Nachrichtenverwaltung.
+\end{itemize}
+
+\subsubsection{Call-and-Return}
+
+\begin{itemize}
+    \item \textbf{Vorteile}: Einfachheit und direkte Kommunikation.
+    \item \textbf{Nachteile}: Eingeschränkte Flexibilität.
+\end{itemize}
+
+\subsubsection{Virtual Machine}
+
+\begin{itemize}
+    \item \textbf{Vorteile}: Plattformunabhängigkeit.
+    \item \textbf{Nachteile}: Leistungseinbußen durch Interpretation.
+\end{itemize}
+
+\subsubsection{Data Flow}
+
+\begin{itemize}
+    \item \textbf{Vorteile}: Einfach zu verstehen und zu testen.
+    \item \textbf{Nachteile}: Schwer zu skalieren bei komplexen Anwendungen.
+\end{itemize}
+
+\subsubsection{Data Centered}
+
+\begin{itemize}
+    \item \textbf{Vorteile}: Zentrale Datenverwaltung.
+    \item \textbf{Nachteile}: Single Point of Failure und Performance-Engpässe.
+\end{itemize}
+
+\subsection{Drei große Patterns}
+
+\subsubsection{Transaction Script}
+
+Organisiert Geschäftslogik als eine Folge von Prozeduren oder Skripten, die Transaktionen durchführen.
+
+\begin{itemize}
+    \item \textbf{Einsatzgebiet}: Einfache Anwendungen mit klaren, sequenziellen Prozessen.
+\end{itemize}
+
+\subsubsection{Domain Model}
+
+Repräsentiert Geschäftslogik und Regeln durch ein reiches Objektmodell.
+
+\begin{itemize}
+    \item \textbf{Einsatzgebiet}: Komplexe Anwendungen mit umfangreicher Geschäftslogik.
+\end{itemize}
+
+\subsubsection{Table Module}
+
+Geschäftslogik wird in Modulen organisiert, die Tabellen der Datenbank repräsentieren.
+
+\begin{itemize}
+    \item \textbf{Einsatzgebiet}: Anwendungen mit stark datenzentrierten Operationen und wenigen Geschäftsregeln.
+\end{itemize}
+
+\subsection{C4-Modell}
+
+Das C4-Modell umfasst vier Ebenen:
+
+\begin{enumerate}
+    \item \textbf{Context}: Überblick über das System und seine Interaktionen mit externen Entitäten.
+    \item \textbf{Container}: Aufteilung des Systems in Container (Anwendungen/Services).
+    \item \textbf{Component}: Detaillierte Darstellung der Komponenten innerhalb eines Containers.
+    \item \textbf{Code}: Detaillierte Darstellung des Codes innerhalb einer Komponente.
+\end{enumerate}
+
+Dieses Modell hilft, die verschiedenen Abstraktionsebenen eines Systems zu verstehen und zu dokumentieren.
+
+\subsection{Architecture Canvas}
+
+Das \textbf{Architecture Canvas} ist ein Tool zur visuellen Darstellung und Planung der Softwarearchitektur. Es hilft, verschiedene Aspekte der Architektur auf einem einzigen Blatt darzustellen und dient als Kommunikationsmittel zwischen den Beteiligten. Vorteile sind:
+
+\begin{itemize}
+    \item Übersichtlichkeit und klare Strukturierung.
+    \item Unterstützung bei der Identifikation von Abhängigkeiten und Risiken.
+\end{itemize}
+
+Nachteile können sein:
+
+\begin{itemize}
+    \item Möglicher Informationsverlust durch zu hohe Abstraktion.
+    \item Erfordert regelmäßige Aktualisierung, um relevant zu bleiben.
+\end{itemize}
+
+\section{Cynefin Framework / Codefin}
+
+\subsection{Cynefin Framework}
+
+\subsubsection{Definition}
+
+Das \textbf{Cynefin Framework} ist ein Modell zur Entscheidungsfindung und Problemlösung, das hilft, zu verstehen, welches Verhalten in bestimmten Kontexten zum Erfolg führt. Es basiert auf der Komplexitätstheorie und unterteilt Probleme in verschiedene Domänen, um passende Handlungsstrategien zu identifizieren.
+
+\subsubsection{Nutzen im Kontext der Softwareentwicklung}
+
+Das Cynefin Framework unterstützt Softwareentwickler und -teams dabei, die Natur der Probleme zu erkennen, mit denen sie konfrontiert sind, und entsprechende Lösungsansätze zu wählen. Es hilft, die richtige Methodik für verschiedene Arten von Problemen zu bestimmen und fördert ein besseres Verständnis für die Dynamik und Unsicherheiten in der Softwareentwicklung.
+
+\subsubsection{Begriffe und Erklärungen}
+
+\paragraph{Cynefin} Ein Modell zur Entscheidungsfindung und Problemlösung, das Probleme in verschiedene Domänen einteilt.
+
+\paragraph{Framework} Ein strukturiertes Modell oder System, das zur Unterstützung und Strukturierung von Prozessen dient.
+
+\paragraph{Exaptation} Die Nutzung bestehender Strukturen oder Prozesse für neue, ursprünglich nicht vorgesehene Zwecke.
+
+\paragraph{4 + 1 Domains}
+
+\begin{itemize}
+    \item \textbf{Simple} (Klar): Klare Ursache-Wirkungs-Beziehungen, beste Praktiken sind anwendbar.
+    \item \textbf{Complicated} (Kompliziert): Ursache-Wirkungs-Beziehungen sind erkennbar, aber Expertise ist erforderlich, um Lösungen zu finden.
+    \item \textbf{Complex} (Komplex): Ursache-Wirkungs-Beziehungen sind erst im Nachhinein erkennbar, experimentelle Ansätze und Adaptation sind notwendig.
+    \item \textbf{Chaotic} (Chaotisch): Keine erkennbare Ursache-Wirkungs-Beziehung, schnelles Handeln zur Stabilisierung ist erforderlich.
+    \item \textbf{Disorder} (Unordnung): Zustand der Ungewissheit, in dem nicht klar ist, welche der vier anderen Domänen anwendbar ist.
+\end{itemize}
+
+\paragraph{Causality} Die Beziehung zwischen Ursache und Wirkung in einem bestimmten Kontext.
+
+\paragraph{Correlation} Die Beziehung und Wechselwirkung zwischen verschiedenen Variablen, ohne dass eine direkte Ursache-Wirkung-Beziehung impliziert wird.
+
+\paragraph{Constraint} Einschränkungen oder Bedingungen, die das Verhalten innerhalb eines Systems beeinflussen.
+
+\subsection{Codefin}
+
+\subsubsection{Praktische Anwendung in der Softwareentwicklung}
+
+Das \textbf{Codefin} Framework basiert auf dem Cynefin Modell und adaptiert dessen Prinzipien für die Softwareentwicklung. Es bietet praktische Werkzeuge und Methoden zur Bewältigung der Komplexität in der Softwareentwicklung. Durch die Einteilung in verschiedene Domänen können Entwickler und Teams geeignete Techniken und Methoden auswählen, um spezifische Herausforderungen zu meistern. Codefin fördert iterative und adaptive Ansätze, um auf Veränderungen und Unsicherheiten in der Softwareentwicklung zu reagieren.
+
+\section{Kanban / Lean Software Development}
+
+\subsection{Zusammenhang von Agile, Lean Software Development, Scrum, XP und Kanban}
+
+\subsubsection{Herkunft}
+
+\begin{itemize}
+    \item \textbf{Agile}: Entstand 2001 durch das Agile Manifesto, das eine Reaktion auf schwerfällige Entwicklungsprozesse war.
+    \item \textbf{Lean Software Development}: Basierend auf den Prinzipien der Lean Manufacturing von Toyota, adaptiert für die Softwareentwicklung.
+    \item \textbf{Scrum}: Entwickelt in den 1990er Jahren, ein Rahmenwerk für die iterative und inkrementelle Softwareentwicklung.
+    \item \textbf{Extreme Programming (XP)}: Von Kent Beck in den späten 1990er Jahren entwickelt, fokussiert auf technische Exzellenz und kontinuierliche Verbesserung.
+    \item \textbf{Kanban}: Ursprünglich aus der Fertigungsindustrie von Toyota, adaptiert für die Softwareentwicklung zur Visualisierung und Optimierung von Workflows.
+\end{itemize}
+
+\subsection{Kanban: Principles, Practices und Values}
+
+\subsubsection{Principles}
+
+\begin{itemize}
+    \item Visualisiere den Workflow
+    \item Begrenze die Anzahl der gleichzeitig bearbeiteten Aufgaben (WIP)
+    \item Manage den Fluss
+    \item Mache Prozessregeln explizit
+    \item Implementiere Feedbackschleifen
+    \item Verbessere gemeinsam in Zusammenarbeit und durch wissenschaftliche Methoden
+\end{itemize}
+
+\subsubsection{Practices}
+
+\begin{itemize}
+    \item Visualisierung von Aufgaben auf einem Kanban-Board
+    \item Limitierung der Work in Progress (WIP)
+    \item Messung und Verwaltung von Durchlaufzeiten
+    \item Kontinuierliche Verbesserung (Kaizen)
+\end{itemize}
+
+\subsubsection{Values}
+
+\begin{itemize}
+    \item Transparenz
+    \item Fokussierung
+    \item Engagement
+    \item Respekt
+    \item Mut
+\end{itemize}
+
+\subsection{Funktionsweise eines Kanban Boards und des Cumulative Flow Diagram (CFD)}
+
+\subsubsection{Kanban Board}
+
+Ein \textbf{Kanban Board} visualisiert den Workflow, indem Aufgaben als Karten in verschiedenen Spalten dargestellt werden, die unterschiedliche Phasen des Prozesses repräsentieren. Es hilft, Engpässe zu identifizieren und den Fortschritt zu überwachen.
+
+\subsubsection{Cumulative Flow Diagram (CFD)}
+
+Ein \textbf{Cumulative Flow Diagram (CFD)} zeigt die Anzahl der Aufgaben in den verschiedenen Phasen des Workflows über die Zeit. Es hilft, den Fluss der Arbeit zu visualisieren und Engpässe zu erkennen.
+
+\subsection{Begriffe und Erklärungen}
+
+\subsubsection{Pull System}
+
+Ein \textbf{Pull System} bedeutet, dass neue Aufgaben erst begonnen werden, wenn Kapazität im System frei wird, anstatt Arbeiten nach einem festen Plan zu starten.
+
+\subsubsection{Limited WIP}
+
+\textbf{Limited WIP} (Work In Progress) bezieht sich auf die Begrenzung der Anzahl gleichzeitig bearbeiteter Aufgaben, um Überlastung zu vermeiden und den Fluss zu verbessern.
+
+\subsubsection{Visualize the Workflow (Kanban Board)}
+
+Das \textbf{Kanban Board} visualisiert den Workflow durch Karten und Spalten, um den Fortschritt und Engpässe sichtbar zu machen.
+
+\subsubsection{Cumulative Flow Diagramm}
+
+Das \textbf{Cumulative Flow Diagramm} (CFD) zeigt die Anzahl der Aufgaben in verschiedenen Phasen des Workflows über die Zeit und hilft, den Fluss der Arbeit zu analysieren.
+
+\subsubsection{Lead time resp. Cycle time}
+
+\textbf{Lead time} ist die Gesamtzeit von der Aufgabenstellung bis zur Fertigstellung. \textbf{Cycle time} ist die Zeit, die eine Aufgabe benötigt, um durch den gesamten Workflow zu gelangen.
+
+\subsubsection{Kaizen}
+
+\textbf{Kaizen} steht für kontinuierliche Verbesserung durch kleine, inkrementelle Änderungen, die kontinuierlich vorgenommen werden, um Prozesse zu optimieren.
+
+\subsubsection{Waste in Software Development}
+
+\textbf{Waste} bezieht sich auf alle Aktivitäten, die keinen Mehrwert für den Kunden schaffen, wie unnötige Features, Verzögerungen, Fehler und ineffiziente Prozesse.
+
+\subsection{Principles of Lean}
+
+\begin{itemize}
+    \item \textbf{Eliminate Waste}: Entferne alle Aktivitäten, die keinen Mehrwert schaffen.
+    \item \textbf{Amplify Learning}: Fördere kontinuierliches Lernen und Anpassung.
+    \item \textbf{Decide as Late as Possible}: Triff Entscheidungen so spät wie möglich auf Basis fundierter Informationen.
+    \item \textbf{Deliver as Fast as Possible}: Liefere so schnell wie möglich, um schnell Feedback zu erhalten.
+    \item \textbf{Empower the Team}: Befähige das Team, Entscheidungen zu treffen und Verantwortung zu übernehmen.
+    \item \textbf{Build Integrity In}: Integriere Qualität und Integrität von Anfang an.
+    \item \textbf{See the Whole}: Optimiere das gesamte System und nicht nur Teile davon.
+\end{itemize}
+
+\subsection{Unterschiede und Gemeinsamkeiten von Scrum und Kanban}
+
+\subsubsection{Gemeinsamkeiten}
+
+\begin{itemize}
+    \item Beide fokussieren auf kontinuierliche Verbesserung.
+    \item Transparenz und Sichtbarkeit des Arbeitsprozesses sind zentral.
+    \item Beide verwenden ein Board zur Visualisierung der Arbeit.
+\end{itemize}
+
+\subsubsection{Unterschiede}
+
+\begin{itemize}
+    \item \textbf{Scrum} arbeitet mit festen Iterationen (Sprints), während \textbf{Kanban} einen kontinuierlichen Fluss hat.
+    \item \textbf{Scrum} hat definierte Rollen (Product Owner, Scrum Master, Entwicklungsteam), während \textbf{Kanban} flexibler in der Rollenverteilung ist.
+    \item \textbf{Scrum} hat strukturierte Meetings (Sprint Planning, Daily Standup, Sprint Review, Sprint Retrospective), während \textbf{Kanban} Meetings nach Bedarf durchführt.
+\end{itemize}
